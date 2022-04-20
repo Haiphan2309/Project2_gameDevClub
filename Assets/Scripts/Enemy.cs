@@ -8,11 +8,14 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rigi;
     protected SpriteRenderer sprRen;
     protected Animator anim;
+
+    protected GameObject player;
     void Awake()
     {
         rigi = gameObject.GetComponent<Rigidbody2D>();
         sprRen = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
