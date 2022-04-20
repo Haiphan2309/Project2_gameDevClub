@@ -2,19 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : MonoBehaviour
+public class Slime : Enemy
 {
     bool isGround;
-    Rigidbody2D rigi;
-    SpriteRenderer sprRen;
     public bool isMoveLeft = true;
     public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        rigi = gameObject.GetComponent<Rigidbody2D>();
-        sprRen = gameObject.GetComponent<SpriteRenderer>();
-
         speed *= 100;
     }
 
@@ -36,7 +31,8 @@ public class Slime : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.contacts[0].normal.x != 0)
+        //Debug.Log(other.contacts[0].normal.x);
+        if (other.contacts[0].normal.x == 1 || other.contacts[0].normal.x == -1)
         {
             isMoveLeft = !isMoveLeft;
             if (isMoveLeft) sprRen.flipX = false;

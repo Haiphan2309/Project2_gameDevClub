@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateAroundObject : MonoBehaviour
+public class RotateAroundObject : Enemy
 {
     // Start is called before the first frame update
     //public GameObject Center;
