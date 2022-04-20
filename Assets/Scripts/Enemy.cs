@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
     public float HP;
     protected Rigidbody2D rigi;
     protected SpriteRenderer sprRen;
+    protected Animator anim;
     void Awake()
     {
         rigi = gameObject.GetComponent<Rigidbody2D>();
         sprRen = gameObject.GetComponent<SpriteRenderer>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,6 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(gameObject + " die");
+        Debug.Log(gameObject.name + " die");
     }
 }

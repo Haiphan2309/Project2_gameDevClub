@@ -16,7 +16,7 @@ public class Slime : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (isGround) Jump();
+        if (isGround) Invoke("Jump",0.3f);
     }
 
     void Jump()
@@ -37,8 +37,8 @@ public class Slime : Enemy
             isMoveLeft = !isMoveLeft;
             if (isMoveLeft) sprRen.flipX = false;
             else sprRen.flipX = true;
-        }
+        }         
+        anim.Play("Move");
         isGround = true;
-        
     }
 }

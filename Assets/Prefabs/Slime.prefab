@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5864208059955420672}
   - component: {fileID: 5864208059955420673}
   - component: {fileID: 1071973414128019610}
+  - component: {fileID: 2247737253123929118}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -98,9 +99,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 0.6
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -147,3 +148,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0069823, y: 0.79563195}
   m_EdgeRadius: 0
+--- !u!95 &2247737253123929118
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864208059955420674}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f78fec0687911f64f8db9a9c6eaa25bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
