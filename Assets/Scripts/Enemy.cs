@@ -23,6 +23,11 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    public void GetHit()
+    {
+        HP--;
+        if (HP>=1) anim.Play("GetHit");
+    }
     public void Die()
     {
         //Debug.Log(gameObject.name + " die");
@@ -32,6 +37,7 @@ public class Enemy : MonoBehaviour
         Destroy(dieObject, 1);
 
         anim.speed = 0;
+        rigi.gravityScale = 1;
         sprRen.flipY = true;
         coli.isTrigger = true;
         Destroy(gameObject, 5);

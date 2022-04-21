@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
             Debug.Log(collision.contacts[0].normal.y);
             if (collision.contacts[0].normal.y == 1 && collision.gameObject.tag == "Enemy")
             {
-                collision.gameObject.GetComponent<Enemy>().HP--;
+                collision.gameObject.GetComponent<Enemy>().GetHit();
             }
             else Die();
         }
