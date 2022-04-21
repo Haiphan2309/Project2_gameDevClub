@@ -16,7 +16,11 @@ public class Slime : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (isGround) Invoke("Jump",0.3f);
+        if (isDie == false)
+        {
+            if (HP <= 0) Die();
+            if (isGround) Invoke("Jump", 0.3f);
+        }
     }
 
     void Jump()

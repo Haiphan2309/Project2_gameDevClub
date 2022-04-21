@@ -56,4 +56,29 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += dir * jumpForce;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "UndefeatEnemy")
+        {
+            canMove = false;
+            Invoke("CanMove", 0.3f);
+            rb.velocity = new Vector2(collision.contacts[0].normal.x, collision.contacts[0].normal.y) * 6;
+            if (collision.contacts[0].normal.y == 1 && collision.gameObject.tag == "Enemy")
+            {
+                collision.gameObject.GetComponent<Enemy>().HP--;
+            }
+            else Die();
+        }
+    }
+
+    void CanMove()
+    {
+        canMove = true;
+    }
+
+    void Die()
+    {
+        Debug.Log("Player Die");
+    }
 }
