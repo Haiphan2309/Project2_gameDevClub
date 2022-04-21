@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
             canMove = false;
             Invoke("CanMove", 0.3f);
             rb.velocity = new Vector2(collision.contacts[0].normal.x, collision.contacts[0].normal.y) * 6;
+            Debug.Log(collision.contacts[0].normal.y);
             if (collision.contacts[0].normal.y == 1 && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().HP--;
