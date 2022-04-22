@@ -124,6 +124,7 @@ MonoBehaviour:
   dieObj: {fileID: 817604638833935751, guid: 9a0f2233a578db9469b1ac3c93063399, type: 3}
   isMoveLeft: 1
   speed: 2
+  jumpDust: {fileID: 5401626576232724534, guid: 61185a7fc920f6d49913dbf1b46e28a2, type: 3}
 --- !u!61 &1071973414128019610
 BoxCollider2D:
   m_ObjectHideFlags: 0

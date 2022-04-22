@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public bool canMove=true;
     public bool isPressingKey;
 
-    public GameObject dieObj;
+    public GameObject dieObj, jumpDust;
 
     private bool onGround;
     // Start is called before the first frame update
@@ -70,6 +70,7 @@ public class Player : MonoBehaviour
             if (collision.contacts[0].normal.y == 1 && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().GetHit();
+                Invoke("CanMove", 0.3f);
             }
             else
             {
@@ -77,6 +78,17 @@ public class Player : MonoBehaviour
                 Invoke("Die", 0.2f);
             }
         }
+
+        if (collision.contacts[0].normal.y == 1)
+        {
+            GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
+            Destroy(jumpDustObj, 1);
+        }
+    }
+
+    void CanMove()
+    {
+        canMove = true;
     }
 
     void Die()

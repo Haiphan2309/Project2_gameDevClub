@@ -1995,6 +1995,7 @@ MonoBehaviour:
   canMove: 1
   isPressingKey: 0
   dieObj: {fileID: 817604638833935751, guid: 9a0f2233a578db9469b1ac3c93063399, type: 3}
+  jumpDust: {fileID: 5401626576232724534, guid: 61185a7fc920f6d49913dbf1b46e28a2, type: 3}
 --- !u!50 &1349419317
 Rigidbody2D:
   serializedVersion: 4
@@ -2052,6 +2053,10 @@ PrefabInstance:
     - target: {fileID: 4324245653397764640, guid: 1666fe906b6292441900c9ddcfa5833f, type: 3}
       propertyPath: m_Name
       value: PumpkinMon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324245653397764640, guid: 1666fe906b6292441900c9ddcfa5833f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4324245653397764652, guid: 1666fe906b6292441900c9ddcfa5833f, type: 3}
       propertyPath: m_RootOrder
@@ -2277,7 +2282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5864208059955420674, guid: a5fa59ac729aedf4682f02ec4f659131, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5864208059955420677, guid: a5fa59ac729aedf4682f02ec4f659131, type: 3}
       propertyPath: m_RootOrder

@@ -7,6 +7,7 @@ public class Slime : Enemy
     bool isGround;
     public bool isMoveLeft = true;
     public float speed;
+    public GameObject jumpDust;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,14 +36,21 @@ public class Slime : Enemy
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //Debug.Log(other.contacts[0].normal.x);
+        Debug.Log(other.contacts[0].normal.y);
+
         if (other.contacts[0].normal.x == 1 || other.contacts[0].normal.x == -1)
         {
+            rigi.velocity = new Vector2(other.contacts[0].normal.x, other.contacts[0].normal.y) * 3;
             isMoveLeft = !isMoveLeft;
             if (isMoveLeft) sprRen.flipX = false;
             else sprRen.flipX = true;
-        }         
-        anim.Play("Move");
-        isGround = true;
+        }
+        if (other.contacts[0].normal.y == 1)
+        {
+            GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0,0.4f,0), Quaternion.identity);
+            Destroy(jumpDustObj, 1);
+            anim.Play("Move");
+            isGround = true;
+        }
     }
 }
