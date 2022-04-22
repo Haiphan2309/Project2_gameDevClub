@@ -7,42 +7,56 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     private AnimationScript anim;
+    private Collision coll;
 
     public float speed = 10;
     public float jumpForce = 10;
 
     public bool canMove=true;
-    bool isGround = true; //kiem tra xem player da cham dat chua.
+    public bool onGround;
     public bool isPressingKey;
 
     public GameObject dieObj, jumpDust;
 
-    private bool onGround;
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<AnimationScript>();
+        coll = GetComponent<Collision>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         isPressingKey = false;
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector2 dir = new Vector2(x, y);
-
+        
         if (dir != Vector2.zero)
         {
             isPressingKey = true;
-            Walk(dir);
-            anim.SetHorizontalMovement(x,y);
         }
+        Walk(dir);
+        anim.SetHorizontalMovement(x,y,rb.velocity.y);
 
         if (Input.GetButtonDown("Jump"))
         {
+            anim.SetTrigger("jump");
             Jump(Vector2.up);
+        }
+
+        if (coll.onGround)
+        {
+            Debug.Log("on Ground");
+        }
+        if (coll.onRightWall)
+        {
+            Debug.Log("on Right Wall");
+        }
+        if (coll.onLeftWall)
+        {
+            Debug.Log("on Left Wall");
         }
     }
 
@@ -56,9 +70,9 @@ public class Player : MonoBehaviour
 
     private void Jump(Vector2 dir)
     {
-        if (!canMove || !isGround) return;
+        if (!canMove || !onGround) return;
 
-        isGround = false;
+        onGround = false;
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += dir * jumpForce;
     }
@@ -84,7 +98,7 @@ public class Player : MonoBehaviour
 
         if (collision.contacts[0].normal.y >= 1-0.03f)
         {
-            isGround = true;
+            onGround = true;
             if (collision.gameObject.tag != "Plate")
             {
                 GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);

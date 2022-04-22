@@ -4,73 +4,91 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4181616137789180648
-    second: MainAtlas_0
+    second: PlayerIdleR0
   - first:
       213: -7468901538007770121
-    second: MainAtlas_1
+    second: PlayerIdleL0
   - first:
       213: -8768524346381255339
-    second: MainAtlas_2
+    second: PlayerIdleR1
   - first:
       213: -5158603224345261547
-    second: MainAtlas_3
+    second: PlayerIdleL1
   - first:
       213: 7360079854780613004
-    second: MainAtlas_4
+    second: PlayerGhostIdle0
   - first:
       213: -5874761798760097780
-    second: MainAtlas_5
-  - first:
-      213: -3831849570254328798
-    second: MainAtlas_7
-  - first:
-      213: 3072725349601351700
-    second: MainAtlas_8
-  - first:
-      213: 2228305319255491586
-    second: MainAtlas_9
-  - first:
-      213: -7501268615023443939
-    second: MainAtlas_10
-  - first:
-      213: 1785945614009637653
-    second: MainAtlas_11
-  - first:
-      213: 6049141963723392599
-    second: MainAtlas_12
-  - first:
-      213: 8244601802851008818
-    second: MainAtlas_13
-  - first:
-      213: -2739367333364474337
-    second: MainAtlas_14
-  - first:
-      213: 4631611279786304350
-    second: MainAtlas_15
-  - first:
-      213: 8698431599817302639
-    second: MainAtlas_16
-  - first:
-      213: -631640819667863774
-    second: MainAtlas_17
-  - first:
-      213: -4727429716374309535
-    second: MainAtlas_18
-  - first:
-      213: -9104476404191829663
-    second: MainAtlas_19
-  - first:
-      213: -825552768885686774
-    second: MainAtlas_20
-  - first:
-      213: 8071081547163244104
-    second: MainAtlas_21
-  - first:
-      213: 3891047911627300395
-    second: MainAtlas_22
+    second: PlayerGhostIdle1
   - first:
       213: -4748271564672722558
-    second: MainAtlas_6
+    second: PlayerGhostFloatR0
+  - first:
+      213: -3831849570254328798
+    second: PlayerGhostFloatL0
+  - first:
+      213: 3072725349601351700
+    second: PlayerCorpse0
+  - first:
+      213: 2228305319255491586
+    second: PlayerWalkR0
+  - first:
+      213: -7501268615023443939
+    second: PlayerWalkR1
+  - first:
+      213: 1785945614009637653
+    second: PlayerWalkRStop
+  - first:
+      213: 6049141963723392599
+    second: PlayerWalkL0
+  - first:
+      213: 8244601802851008818
+    second: PlayerWalkL1
+  - first:
+      213: -2739367333364474337
+    second: PlayerWalkLStop
+  - first:
+      213: 4631611279786304350
+    second: PlayerJumpR0
+  - first:
+      213: 8698431599817302639
+    second: PlayerAirR0
+  - first:
+      213: -631640819667863774
+    second: PlayerJumpL0
+  - first:
+      213: -4727429716374309535
+    second: PlayerAirL0
+  - first:
+      213: -9104476404191829663
+    second: PlayerFallL0
+  - first:
+      213: -825552768885686774
+    second: PlayerLandL0
+  - first:
+      213: 8071081547163244104
+    second: PlayerFallR0
+  - first:
+      213: 3891047911627300395
+    second: PlayerLandR0
+  - first:
+      213: -1238278373243131102
+    second: PlayerDownR0
+  - first:
+      213: 7383715188580764812
+    second: PlayerDownL0
+  - first:
+      213: 4941089953191347003
+    second: PlayerUpR0
+  - first:
+      213: -7631358531658283085
+    second: PlayerUpL0
+  - first:
+      213: -3692496904521502393
+    second: PlayerWallL0
+  - first:
+      213: -5143523104247749523
+    second: PlayerWallR0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -156,23 +174,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainAtlas_0
+      name: PlayerIdleR0
       rect:
         serializedVersion: 2
         x: 0
@@ -180,7 +186,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_1
+      name: PlayerIdleL0
       rect:
         serializedVersion: 2
         x: 16
@@ -201,7 +207,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_2
+      name: PlayerIdleR1
       rect:
         serializedVersion: 2
         x: 32
@@ -222,7 +228,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -235,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_3
+      name: PlayerIdleL1
       rect:
         serializedVersion: 2
         x: 48
@@ -243,7 +249,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_4
+      name: PlayerGhostIdle0
       rect:
         serializedVersion: 2
         x: 64
@@ -264,7 +270,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -277,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_5
+      name: PlayerGhostIdle1
       rect:
         serializedVersion: 2
         x: 80
@@ -285,7 +291,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -298,15 +304,36 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_7
+      name: PlayerGhostFloatR0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 96
+        x: 96
+        y: 112
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289189a5b20ca1eb0800000000000000
+      internalID: -4748271564672722558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerGhostFloatL0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,15 +346,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_8
+      name: PlayerCorpse0
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -340,15 +367,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_9
+      name: PlayerWalkR0
       rect:
         serializedVersion: 2
-        x: 48
+        x: 16
         y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -361,15 +388,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_10
+      name: PlayerWalkR1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -382,15 +409,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_11
+      name: PlayerWalkRStop
       rect:
         serializedVersion: 2
-        x: 80
+        x: 48
         y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -403,15 +430,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_12
+      name: PlayerWalkL0
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -424,15 +451,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_13
+      name: PlayerWalkL1
       rect:
         serializedVersion: 2
-        x: 112
+        x: 80
         y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -445,15 +472,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_14
+      name: PlayerWalkLStop
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 96
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -466,15 +493,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_15
+      name: PlayerJumpR0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -487,15 +514,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_16
+      name: PlayerAirR0
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -508,15 +535,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_17
+      name: PlayerJumpL0
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -529,15 +556,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_18
+      name: PlayerAirL0
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -550,15 +577,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_19
+      name: PlayerFallL0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 64
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -571,15 +598,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_20
+      name: PlayerLandL0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 64
+        x: 80
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -592,15 +619,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_21
+      name: PlayerFallR0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 96
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -613,15 +640,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_22
+      name: PlayerLandR0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
+        x: 112
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -634,22 +661,127 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainAtlas_6
+      name: PlayerDownR0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 64
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 289189a5b20ca1eb0800000000000000
-      internalID: -4748271564672722558
+      spriteID: 22b6bc55160c0dee0800000000000000
+      internalID: -1238278373243131102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerDownL0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c430ae7d9387660800000000000000
+      internalID: 7383715188580764812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerUpR0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33c8372227429440800000000000000
+      internalID: 4941089953191347003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerUpL0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b78cde19d7f71690800000000000000
+      internalID: -7631358531658283085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWallL0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74134c701ad91ccc0800000000000000
+      internalID: -3692496904521502393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWallR0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d646c4dfcf88e98b0800000000000000
+      internalID: -5143523104247749523
       vertices: []
       indices: 
       edges: []

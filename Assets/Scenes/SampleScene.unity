@@ -3499,6 +3499,7 @@ GameObject:
   - component: {fileID: 1349419318}
   - component: {fileID: 1349419317}
   - component: {fileID: 1349419316}
+  - component: {fileID: 1349419313}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3506,6 +3507,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1349419313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349419312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f9e1fe101435245ae17439ad99d624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  onGround: 0
+  onWall: 0
+  onRightWall: 0
+  onLeftWall: 0
+  collisionRadius: 0.25
+  bottomOffset: {x: 0, y: -0.7}
+  rightOffset: {x: 0, y: 0}
+  leftOffset: {x: 0, y: 0}
 --- !u!4 &1349419315
 Transform:
   m_ObjectHideFlags: 0
@@ -3534,8 +3558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  speed: 6
-  jumpForce: 15
+  speed: 5
+  jumpForce: 12
   canMove: 1
   isPressingKey: 0
   dieObj: {fileID: 817604638833935751, guid: 9a0f2233a578db9469b1ac3c93063399, type: 3}
