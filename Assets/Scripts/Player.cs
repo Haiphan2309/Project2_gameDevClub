@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 10;
 
     public bool canMove=true;
+    bool isGround = true; //kiem tra xem player da cham dat chua.
     public bool isPressingKey;
 
     public GameObject dieObj, jumpDust;
@@ -55,19 +56,21 @@ public class Player : MonoBehaviour
 
     private void Jump(Vector2 dir)
     {
-        if (!canMove) return;
+        if (!canMove || !isGround) return;
+
+        isGround = false;
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += dir * jumpForce;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.contacts[0].normal.y);
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "UndefeatEnemy")
         {
             canMove = false;
             rb.velocity = new Vector2(collision.contacts[0].normal.x, collision.contacts[0].normal.y) * 6;
-            Debug.Log(collision.contacts[0].normal.y);
-            if (collision.contacts[0].normal.y == 1 && collision.gameObject.tag == "Enemy")
+            if (collision.contacts[0].normal.y >= 1-0.03f && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().GetHit();
                 Invoke("CanMove", 0.3f);
@@ -79,10 +82,26 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (collision.contacts[0].normal.y == 1)
+        if (collision.contacts[0].normal.y >= 1-0.03f)
         {
-            GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
-            Destroy(jumpDustObj, 1);
+            isGround = true;
+            if (collision.gameObject.tag != "Plate")
+            {
+                GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
+                Destroy(jumpDustObj, 1);
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.contacts[0].normal.x >= 1 - 0.03f && rb.velocity == Vector2.zero) //Fix bug khong the di chuyen khi ket vao goc
+        {
+            rb.velocity = new Vector2(1f, 3f);
+        }
+        if (collision.contacts[0].normal.x <= -1 + 0.03f && rb.velocity == Vector2.zero)
+        {
+            rb.velocity = new Vector2(-1f, 3f);
         }
     }
 

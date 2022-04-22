@@ -36,16 +36,16 @@ public class Slime : Enemy
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.contacts[0].normal.y);
+        //Debug.Log(other.contacts[0].normal.y);
 
-        if (other.contacts[0].normal.x == 1 || other.contacts[0].normal.x == -1)
+        if (other.contacts[0].normal.x >= 1-0.03f || other.contacts[0].normal.x <= -1+0.03f)
         {
             rigi.velocity = new Vector2(other.contacts[0].normal.x, other.contacts[0].normal.y) * 3;
             isMoveLeft = !isMoveLeft;
             if (isMoveLeft) sprRen.flipX = false;
             else sprRen.flipX = true;
         }
-        if (other.contacts[0].normal.y == 1)
+        if (other.contacts[0].normal.y >= 1-0.03f)
         {
             GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0,0.4f,0), Quaternion.identity);
             Destroy(jumpDustObj, 1);
