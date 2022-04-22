@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4181616137789180648
-    second: PlayerIdle_0
+    second: MainAtlas_0
   - first:
       213: -7468901538007770121
-    second: PlayerIdle_1
+    second: MainAtlas_1
   - first:
       213: -8768524346381255339
-    second: PlayerCorpse_0
+    second: MainAtlas_2
   - first:
       213: -5158603224345261547
     second: MainAtlas_3
@@ -22,55 +22,55 @@ TextureImporter:
     second: MainAtlas_5
   - first:
       213: -3831849570254328798
-    second: PlayerWalkRight_0
+    second: MainAtlas_7
   - first:
       213: 3072725349601351700
-    second: PlayerWalkRight_1
+    second: MainAtlas_8
   - first:
       213: 2228305319255491586
-    second: PlayerWalkRight_2
+    second: MainAtlas_9
   - first:
       213: -7501268615023443939
-    second: PlayerWalkRight_3
+    second: MainAtlas_10
   - first:
       213: 1785945614009637653
-    second: PlayerWalkLeft_1
+    second: MainAtlas_11
   - first:
       213: 6049141963723392599
-    second: PlayerWalkLeft_2
+    second: MainAtlas_12
   - first:
       213: 8244601802851008818
-    second: PlayerWalkLeft_3
+    second: MainAtlas_13
   - first:
       213: -2739367333364474337
     second: MainAtlas_14
   - first:
       213: 4631611279786304350
-    second: PlayerJump_0
+    second: MainAtlas_15
   - first:
       213: 8698431599817302639
-    second: PlayerJump_1
+    second: MainAtlas_16
   - first:
       213: -631640819667863774
-    second: PlayerFall_0
+    second: MainAtlas_17
   - first:
       213: -4727429716374309535
-    second: PlayerFall_1
+    second: MainAtlas_18
   - first:
       213: -9104476404191829663
     second: MainAtlas_19
   - first:
       213: -825552768885686774
-    second: PlayerDown_0
+    second: MainAtlas_20
   - first:
       213: 8071081547163244104
-    second: PlayerUpRight_0
+    second: MainAtlas_21
   - first:
       213: 3891047911627300395
-    second: PlayerUpLeft_0
+    second: MainAtlas_22
   - first:
       213: -4748271564672722558
-    second: PlayerWalkLeft_0
+    second: MainAtlas_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -172,15 +172,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: MainAtlas_0
       rect:
         serializedVersion: 2
         x: 0
         y: 112
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,15 +193,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_1
+      name: MainAtlas_1
       rect:
         serializedVersion: 2
         x: 16
         y: 112
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,15 +214,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerCorpse_0
+      name: MainAtlas_2
       rect:
         serializedVersion: 2
         x: 32
         y: 112
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -242,8 +242,8 @@ TextureImporter:
         y: 112
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -263,8 +263,8 @@ TextureImporter:
         y: 112
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -284,8 +284,8 @@ TextureImporter:
         y: 112
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -298,15 +298,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWalkRight_0
+      name: MainAtlas_7
       rect:
         serializedVersion: 2
         x: 16
         y: 96
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,15 +319,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWalkRight_1
+      name: MainAtlas_8
       rect:
         serializedVersion: 2
         x: 32
         y: 96
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -340,15 +340,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWalkRight_2
+      name: MainAtlas_9
       rect:
         serializedVersion: 2
         x: 48
         y: 96
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -361,15 +361,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWalkRight_3
+      name: MainAtlas_10
       rect:
         serializedVersion: 2
         x: 64
         y: 96
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -382,15 +382,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWalkLeft_1
+      name: MainAtlas_11
       rect:
         serializedVersion: 2
         x: 80
         y: 96
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -403,15 +403,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWalkLeft_2
+      name: MainAtlas_12
       rect:
         serializedVersion: 2
         x: 96
         y: 96
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -424,15 +424,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWalkLeft_3
+      name: MainAtlas_13
       rect:
         serializedVersion: 2
         x: 112
         y: 96
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -452,8 +452,8 @@ TextureImporter:
         y: 80
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -466,15 +466,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerJump_0
+      name: MainAtlas_15
       rect:
         serializedVersion: 2
         x: 16
         y: 80
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -487,15 +487,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerJump_1
+      name: MainAtlas_16
       rect:
         serializedVersion: 2
         x: 32
         y: 80
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -508,15 +508,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerFall_0
+      name: MainAtlas_17
       rect:
         serializedVersion: 2
         x: 48
         y: 80
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -529,15 +529,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerFall_1
+      name: MainAtlas_18
       rect:
         serializedVersion: 2
         x: 64
         y: 80
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -557,8 +557,8 @@ TextureImporter:
         y: 64
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -571,15 +571,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDown_0
+      name: MainAtlas_20
       rect:
         serializedVersion: 2
         x: 16
         y: 64
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -592,15 +592,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerUpRight_0
+      name: MainAtlas_21
       rect:
         serializedVersion: 2
         x: 32
         y: 64
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -613,15 +613,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerUpLeft_0
+      name: MainAtlas_22
       rect:
         serializedVersion: 2
         x: 48
         y: 64
         width: 16
         height: 16
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -634,7 +634,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWalkLeft_0
+      name: MainAtlas_6
       rect:
         serializedVersion: 2
         x: 0

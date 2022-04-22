@@ -20,8 +20,11 @@ public class SpikeMon : Enemy
     // Update is called once per frame
     private void Update()
     {
-        if (Vector3.SqrMagnitude(player.transform.position - transform.position) <= distance) Look();
-        else sprRen.sprite = defaultSprite;
+        if (player != null)
+        {
+            if (Vector3.SqrMagnitude(player.transform.position - transform.position) <= distance) Look();
+            else sprRen.sprite = defaultSprite;
+        }
     }
     void FixedUpdate()
     {

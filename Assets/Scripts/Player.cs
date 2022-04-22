@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public bool canMove=true;
     public bool isPressingKey;
 
+    public GameObject dieObj;
+
     private bool onGround;
     // Start is called before the first frame update
     void Start()
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour
 
     private void Jump(Vector2 dir)
     {
+        if (!canMove) return;
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += dir * jumpForce;
     }
@@ -62,24 +65,31 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "UndefeatEnemy")
         {
             canMove = false;
-            Invoke("CanMove", 0.3f);
             rb.velocity = new Vector2(collision.contacts[0].normal.x, collision.contacts[0].normal.y) * 6;
             Debug.Log(collision.contacts[0].normal.y);
             if (collision.contacts[0].normal.y == 1 && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().GetHit();
             }
-            else Die();
+            else
+            {
+                //CameraController.Shake();
+                Invoke("Die", 0.2f);
+            }
         }
-    }
-
-    void CanMove()
-    {
-        canMove = true;
     }
 
     void Die()
     {
-        Debug.Log("Player Die");
+        CameraController.Shake();
+        GameObject dieObject;
+        dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
+        Destroy(dieObject, 1);
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("reload level");
     }
 }
