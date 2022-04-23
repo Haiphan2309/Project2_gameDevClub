@@ -1,19 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject obj;
+    //public GameObject obj;
+    GameObject player;
+    static public int room = 1, level = 1;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (level == 1)
+        {
+            if (room == 1)
+            {
+                CameraController.minX = -20;
+                CameraController.maxX = 0;
+                player.transform.position = new Vector3(0, 0, 0);
+            }
+            if (room == 2)
+            {
+                player.transform.position = new Vector3(11, 1, 0);
+                CameraController.minX = 20;
+                CameraController.maxX = 20;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) obj.GetComponent<Enemy>().HP--;
+        if (level == 1)
+        {
+            if (room == 1)
+            {
+                CameraController.minX = -20;
+                CameraController.maxX = 0;
+            }
+            if (room == 2)
+            {
+                CameraController.minX = 20;
+                CameraController.maxX = 20;
+            }
+        }
+    }
+
+    public void ReStartLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 }

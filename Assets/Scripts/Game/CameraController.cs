@@ -7,8 +7,11 @@ public class CameraController : MonoBehaviour
     GameObject obj;
     static Animator anim;
     private Transform player;
-    public float maxX, minX, maxY, minY;
+    public static float maxX = 0, minX = 0, maxY = 0, minY = 0;
     public float moveSpeed;
+
+    const float slideDistance = 20;
+    static bool isFollowPlayer = true;
     //bool isScoll = false;
 
     Rigidbody2D rigi;
@@ -24,13 +27,14 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        isFollowPlayer = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player != null /*&& isScoll == false*/)
-        { 
+        if (player != null && isFollowPlayer/*&& isScoll == false*/)
+        {
             // Tao camera di chuyen theo player
             Vector3 target = obj.transform.position;
             target.x = player.position.x;
@@ -43,7 +47,8 @@ public class CameraController : MonoBehaviour
 
             obj.transform.position = Vector3.Lerp(obj.transform.position, target, moveSpeed * Time.deltaTime);
         }
-        
+
+        if (isFollowPlayer == false) Invoke("FollowPlayer", 1);
     }
 
     private void FixedUpdate()
@@ -62,6 +67,23 @@ public class CameraController : MonoBehaviour
     public static void Shake()
     {
         anim.Play("Shake");
+    }
+
+    public static void SlideRight()
+    {        
+        anim.Play("SlideRight");
+        isFollowPlayer = false;
+    }
+
+    public static void SlideLeft()
+    {
+        anim.Play("SlideLeft");
+        isFollowPlayer = false;
+    }
+
+    void FollowPlayer()
+    {
+        isFollowPlayer = true;
     }
 
     //public void Scoll()

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private AnimationScript anim;
     private Collision coll;
 
+
     public float speed = 10;
     public float jumpForce = 10;
 
@@ -16,13 +17,15 @@ public class Player : MonoBehaviour
     public bool onGround;
     public bool isPressingKey;
 
-    public GameObject dieObj, jumpDust;
+    public GameObject dieObj, jumpDust, gameController;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<AnimationScript>();
         coll = GetComponent<Collision>();
+
+        gameController = GameObject.FindGameObjectWithTag("GameController");
     }
 
 
@@ -131,11 +134,13 @@ public class Player : MonoBehaviour
         GameObject dieObject;
         dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
         Destroy(dieObject, 1);
-        Destroy(gameObject);
+
+        Destroy(gameObject,0.5f);
     }
 
     private void OnDestroy()
     {
         Debug.Log("reload level");
+        gameController.GetComponent<GameController>().ReStartLevel();
     }
 }
