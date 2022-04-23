@@ -92,7 +92,8 @@ public class Player : MonoBehaviour
             else
             {
                 //CameraController.Shake();
-                Invoke("Die", 0.2f);
+                //Invoke("Die", 0.2f);
+                Die();
             }
         }
 
@@ -107,17 +108,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.contacts[0].normal.x >= 1 - 0.03f && rb.velocity == Vector2.zero) //Fix bug khong the di chuyen khi ket vao goc
-        {
-            rb.velocity = new Vector2(1f, 3f);
-        }
-        if (collision.contacts[0].normal.x <= -1 + 0.03f && rb.velocity == Vector2.zero)
-        {
-            rb.velocity = new Vector2(-1f, 3f);
-        }
-    }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    //if (collision.contacts[0].normal.x >= 1 - 0.03f && rb.velocity == Vector2.zero) //Fix bug khong the di chuyen khi ket vao goc
+    //    //{
+    //    //    rb.velocity = new Vector2(1f, 3f);
+    //    //}
+    //    //if (collision.contacts[0].normal.x <= -1 + 0.03f && rb.velocity == Vector2.zero)
+    //    //{
+    //    //    rb.velocity = new Vector2(-1f, 3f);
+    //    //}
+    //}
 
     void CanMove()
     {
