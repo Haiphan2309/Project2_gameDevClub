@@ -23,7 +23,10 @@ public class AnimationScript : MonoBehaviour
         anim.SetBool("canMove", move.canMove);
         anim.SetBool("isPressingKey", move.isPressingKey);
         anim.SetBool("onGround", coll.onGround);
-        
+        anim.SetBool("onRightWall", coll.onRightWall);
+        anim.SetBool("onLeftWall", coll.onLeftWall);
+        anim.SetBool("onWall", coll.onWall);
+        anim.SetBool("wallSlide", move.wallSlide);
     }
 
     public void SetHorizontalMovement(float x, float y, float yVer)

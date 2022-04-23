@@ -8,16 +8,23 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     private AnimationScript anim;
     private Collision coll;
+    private GameObject dieObj, jumpDust, gameController;
 
 
     public float speed = 10;
     public float jumpForce = 10;
+    public float slideSpeed = 5;
+    public float wallJumpLerp = 10;
+    public float dashSpeed = 20;
 
+    public bool wallJumped;
     public bool canMove=true;
     public bool onGround;
     public bool isPressingKey;
+    public bool wallSlide;
 
-    public GameObject dieObj, jumpDust, gameController;
+    private bool groundTouch;
+    private bool hasDashed;
 
     void Start()
     {
@@ -34,33 +41,94 @@ public class Player : MonoBehaviour
         isPressingKey = false;
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
+        float xRaw = Input.GetAxisRaw("Horizontal");
+        float yRaw = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(x, y);
         
         if (dir != Vector2.zero)
         {
             isPressingKey = true;
         }
+        
         Walk(dir);
         anim.SetHorizontalMovement(x,y,rb.velocity.y);
+        
+        if (coll.onWall && !coll.onGround)
+        {
+            wallSlide = true;
+        }
+        else
+        {
+            wallSlide = false;
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
             anim.SetTrigger("jump");
-            Jump(Vector2.up);
+
+            if(coll.onGround)
+            {
+                Jump(Vector2.up,false);
+            }
+
+            if(wallSlide)
+            {
+                WallJump();
+            }
         }
 
-        if (coll.onGround)
+
+        if (wallSlide)
         {
-            Debug.Log("on Ground");
+            if (canMove)
+            {
+                bool pushingWall = false;
+                if ((rb.velocity.x > 0 && coll.onRightWall) || (rb.velocity.x < 0 && coll.onLeftWall))
+                {
+                    pushingWall = true;
+                }
+                float push = pushingWall ? 0 : rb.velocity.x;
+
+                rb.velocity = new Vector2(push, Mathf.Clamp(rb.velocity.y, -slideSpeed, float.MaxValue));
+            }  
         }
-        if (coll.onRightWall)
+
+        if (Input.GetButtonDown("Fire1") && !hasDashed)
         {
-            Debug.Log("on Right Wall");
+            if (xRaw != 0 || yRaw != 0)
+                Dash(xRaw, yRaw);
         }
-        if (coll.onLeftWall)
+
+        if (coll.onGround && !groundTouch)
         {
-            Debug.Log("on Left Wall");
+            GroundTouch();
+            groundTouch = true;
         }
+
+        if (!coll.onGround && groundTouch)
+        {
+            groundTouch = false;
+        }
+
+    }
+
+    private void GroundTouch()
+    {
+        hasDashed = false;
+    }
+
+    private void Dash(float x, float y)
+    {
+        //Can 1 cai shake o day
+
+        hasDashed = true;
+
+        anim.SetTrigger("dash");
+
+        rb.velocity = Vector2.zero;
+        Vector2 dir = new Vector2(x, y);
+
+        rb.velocity += dir.normalized * dashSpeed;
     }
 
     private void Walk(Vector2 dir)
@@ -68,16 +136,30 @@ public class Player : MonoBehaviour
         if (!canMove)
             return;
 
-        rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
+        if (!wallJumped)
+        {
+            rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = Vector2.Lerp(rb.velocity, (new Vector2(dir.x * speed, rb.velocity.y)), wallJumpLerp * Time.deltaTime);
+        }
     }
 
-    private void Jump(Vector2 dir)
-    {
-        if (!canMove || !onGround) return;
+    private void Jump(Vector2 dir, bool push)
+    { 
 
         onGround = false;
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.velocity += dir * jumpForce;
+        if (push)
+        {
+            rb.velocity = new Vector2(-rb.velocity.x, 0);
+            rb.velocity += dir * jumpForce;
+        }
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.velocity += dir * jumpForce;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -128,6 +210,13 @@ public class Player : MonoBehaviour
         canMove = true;
     }
 
+    IEnumerator DisableMovement(float time)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(time);
+        canMove = true;
+    }
+
     void Die()
     {
         CameraController.Shake();
@@ -142,5 +231,17 @@ public class Player : MonoBehaviour
     {
         Debug.Log("reload level");
         gameController.GetComponent<GameController>().ReStartLevel();
+    }
+
+    private void WallJump()
+    {
+        StopCoroutine(DisableMovement(0));
+        StartCoroutine(DisableMovement(.1f));
+
+        Vector2 wallDir = coll.onRightWall ? Vector2.left : Vector2.right;
+
+        Jump(Vector2.up/1.5f + wallDir/1.5f,false);
+
+        wallJumped = true;
     }
 }
