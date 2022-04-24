@@ -9,12 +9,14 @@ public class AnimationScript : MonoBehaviour
     private Collision coll;
     [HideInInspector]
     public SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         move = GetComponentInParent<Player>();
         coll = GetComponentInParent<Collision>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

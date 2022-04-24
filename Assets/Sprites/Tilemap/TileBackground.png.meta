@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: -3816112677401081024
     second: TileBackground_2
+  - first:
+      213: -1437212385924259130
+    second: TileBackground_3
+  - first:
+      213: -2262670687101894957
+    second: TileBackground_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -170,6 +176,48 @@ TextureImporter:
       bones: []
       spriteID: 04bc4a01db17a0bc0800000000000000
       internalID: -3816112677401081024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileBackground_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2613e13fefd0ce0800000000000000
+      internalID: -1437212385924259130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileBackground_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de3a9b8ff06990e0800000000000000
+      internalID: -2262670687101894957
       vertices: []
       indices: 
       edges: []

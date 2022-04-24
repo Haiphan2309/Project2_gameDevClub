@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     private AnimationScript anim;
     private Collision coll;
-    private GameObject dieObj, jumpDust, gameController;
+    private GameObject gameController;
+
+    public GameObject dieObj, jumpDust;
 
     public float speed = 10;
     public float jumpForce = 10;
@@ -114,6 +116,7 @@ public class Player : MonoBehaviour
     private void GroundTouch()
     {
         hasDashed = false;
+        wallJumped = false;
     }
 
     private void Dash()
@@ -126,10 +129,13 @@ public class Player : MonoBehaviour
 
     private void DashInit(float x, float y)
     {
-        //Can 1 cai shake o day
-
-        if(Input.GetButtonDown("Dash") && !hasDashed)
+        if (Input.GetButtonDown("Dash") && !hasDashed)
         {
+            //Hieu ung Shake + bui luc nhay
+            CameraController.Shake();
+            GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
+            Destroy(jumpDustObj, 1);
+
             isDashing = true;
             hasDashed = true;
             rb.velocity = Vector2.zero;
@@ -148,6 +154,9 @@ public class Player : MonoBehaviour
         if (!canMove)
             return;
 
+        if (dir.x >= -0.1f && dir.x <= 0.1f)
+            GetComponent<Collision>().onWalk = false;
+        else GetComponent<Collision>().onWalk = true;
         if (!wallJumped)
         {
             rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
@@ -245,6 +254,7 @@ public class Player : MonoBehaviour
         dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
         Destroy(dieObject, 1);
 
+        transform.localScale = new Vector3(0,0,0); //xoa hinh anh Player luc chet
         Destroy(gameObject,0.5f);
     }
 
