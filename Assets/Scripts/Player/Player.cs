@@ -195,12 +195,12 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.contacts[0].normal.y);
+        //Debug.Log(collision.contacts[0].normal.y);
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "UndefeatEnemy")
         {
             canMove = false;
             rb.velocity = new Vector2(collision.contacts[0].normal.x, collision.contacts[0].normal.y) * 6;
-            if (collision.contacts[0].normal.y >= 1-0.03f && collision.gameObject.tag == "Enemy")
+            if (collision.contacts[0].normal.y >= 1 - 0.03f && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().GetHit();
                 Invoke("CanMove", 0.3f);

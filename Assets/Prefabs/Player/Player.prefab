@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4558214837811841451}
   - component: {fileID: 4558214837811841450}
   - component: {fileID: 4558214837811841455}
+  - component: {fileID: 3644879727818041172}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -135,6 +136,22 @@ MonoBehaviour:
   onWalk: 0
   dustEffect: {fileID: 6191181113307684643, guid: 9f8bd1af2af5b2b4f9131ab4bf0aafbb, type: 3}
   coll: {fileID: 0}
+--- !u!58 &3644879727818041172
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558214837811841454}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.3}
+  serializedVersion: 2
+  m_Radius: 0.35983416
 --- !u!1001 &4130848397498069924
 PrefabInstance:
   m_ObjectHideFlags: 0

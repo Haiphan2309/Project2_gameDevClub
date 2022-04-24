@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed181778863739d41a0cec47ecca5889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  dieObj: {fileID: 0}
+  HP: 1
+  dieObj: {fileID: 817604638833935751, guid: 9a0f2233a578db9469b1ac3c93063399, type: 3}
   m_Distance: 5
   m_Speed: 4
   m_FollowTime: 2

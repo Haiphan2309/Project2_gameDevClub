@@ -29,7 +29,9 @@ public class Bat : Enemy
         m_animator.SetBool("isFlying",false);
     }
     void Update()
-    {   
+    {
+        if (HP <= 0) Die();
+
         if(m_isGoingBack){
             BackToStart();
             if(transform.position == m_StartPosition){
