@@ -5,18 +5,63 @@ using UnityEngine;
 public class Bat : Enemy
 {
     // Start is called before the first frame update
-    public float distance;
-    public float speed;
+    [SerializeField] float m_Distance;
+    [SerializeField] float m_Speed;
+
+    [SerializeField] float m_FollowTime;
     
-    bool isFoundPlayer = false;
-    // Update is called once per frame
-    void FixedUpdate()
+    float FollowTime;
+    bool m_isFoundPlayer = false;
+    
+    bool m_isGoingBack = false;
+    
+    Vector3 m_StartPosition;
+
+    
+    void Start()
     {
-        if(Vector3.Distance(transform.position,player.transform.position) <= distance){
-            isFoundPlayer = true;
+        m_StartPosition = transform.position;
+        FollowTime = m_FollowTime;
+        m_isFoundPlayer = false;
+        m_isGoingBack = false;
+    }
+    void Update()
+    {   
+        if(m_isGoingBack){
+            BackToStart();
+            if(transform.position == m_StartPosition){
+                transform.up = Vector3.down;
+                FollowTime = m_FollowTime;
+                m_isGoingBack = false;
+            }
         }
-        if(isFoundPlayer){
-            transform.position = Vector3.MoveTowards(transform.position,player.transform.position,Time.fixedDeltaTime*speed);
+        else CheckFoundPlayer();
+        
+        if(m_isFoundPlayer){
+            MoveToPlayer();
+            FollowTime -= Time.deltaTime;
+            if(FollowTime <= 0){
+                m_isFoundPlayer = false;
+                m_isGoingBack = true;
+            }
         }
+       
+    }
+
+    void MoveToPlayer(){
+        if(!m_isFoundPlayer) return;
+        transform.position = Vector2.MoveTowards(transform.position,player.transform.position,m_Speed*Time.deltaTime);
+        transform.up = player.transform.position - transform.position;
+    }
+
+    void BackToStart(){
+        transform.position = Vector2.MoveTowards(transform.position,m_StartPosition,m_Speed*Time.deltaTime);
+        transform.up = m_StartPosition - transform.position;
+    }
+
+    void CheckFoundPlayer(){
+        if(Vector3.Distance(transform.position,player.transform.position) <= m_Distance){
+            m_isFoundPlayer = true;
+        }   
     }
 }
