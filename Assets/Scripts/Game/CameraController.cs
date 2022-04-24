@@ -64,12 +64,17 @@ public class CameraController : MonoBehaviour
         //}
     }
 
-    public static void Shake()
+    public static void Shake() //rung
     {
         anim.Play("Shake");
     }
 
-    public static void SlideRight()
+    public static void LightShake() //rung nhe
+    {
+        anim.Play("LightShake");
+    }
+
+    public static void SlideRight() //cuon phai
     {        
         anim.Play("SlideRight");
         isFollowPlayer = false;

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private Collision coll;
     private GameObject gameController;
 
-    public GameObject dieObj, jumpDust;
+    public GameObject dieObj, jumpDust, afterImage; //Chet, bui, du anh
 
     public float speed = 10;
     public float jumpForce = 10;
@@ -127,14 +127,24 @@ public class Player : MonoBehaviour
         }
     }
 
+    void DoAfterImage() //Tao ra cac du anh
+    {
+        Instantiate(afterImage, transform.position, Quaternion.identity);
+    }
+
     private void DashInit(float x, float y)
     {
         if (Input.GetButtonDown("Dash") && !hasDashed)
         {
             //Hieu ung Shake + bui luc nhay
-            CameraController.Shake();
+            CameraController.LightShake();
             GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
             Destroy(jumpDustObj, 1);
+
+            Invoke("DoAfterImage",0);
+            Invoke("DoAfterImage", 0.05f);
+            Invoke("DoAfterImage", 0.1f); 
+            Invoke("DoAfterImage", 0.15f);
 
             isDashing = true;
             hasDashed = true;
@@ -214,18 +224,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    //if (collision.contacts[0].normal.x >= 1 - 0.03f && rb.velocity == Vector2.zero) //Fix bug khong the di chuyen khi ket vao goc
-    //    //{
-    //    //    rb.velocity = new Vector2(1f, 3f);
-    //    //}
-    //    //if (collision.contacts[0].normal.x <= -1 + 0.03f && rb.velocity == Vector2.zero)
-    //    //{
-    //    //    rb.velocity = new Vector2(-1f, 3f);
-    //    //}
-    //}
-
     void CanMove()
     {
         canMove = true;
@@ -255,7 +253,7 @@ public class Player : MonoBehaviour
         Destroy(dieObject, 1);
 
         transform.localScale = new Vector3(0,0,0); //xoa hinh anh Player luc chet
-        Destroy(gameObject,0.5f);
+        Destroy(gameObject,1);
     }
 
     private void OnDestroy()
@@ -274,5 +272,18 @@ public class Player : MonoBehaviour
         Jump(Vector2.up/1.5f + wallDir/1.5f,false);
 
         wallJumped = true;
+
+        //Hieu ung bui:
+        if (coll.onRightWall)
+        {
+            GameObject jumpDustObj = Instantiate(jumpDust, transform.position + new Vector3(0.2f, 0, 0), Quaternion.Euler(0, 0, 90));
+            Destroy(jumpDustObj, 1);
+        }
+        else
+        {
+            GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0.2f, 0, 0), Quaternion.Euler(0, 0, -90));
+            Destroy(jumpDustObj, 1);
+        }
+        
     }
 }

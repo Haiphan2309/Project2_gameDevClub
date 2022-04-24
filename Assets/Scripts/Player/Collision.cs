@@ -29,14 +29,27 @@ public class Collision : MonoBehaviour
     void Update()
     {
 
-        if (onWalk)
+        if (onWalk && onGround)
         {
+            par.transform.position = transform.position - new Vector3(0, 0.4f, 0);
+            if (par.loop == false) par.Play();
+            par.loop = true;
+        }
+        else if (onRightWall)
+        {
+            par.transform.position = transform.position + new Vector3(0.4f, 0, 0);
+            if (par.loop == false) par.Play();
+            par.loop = true;
+        }
+        else if (onLeftWall)
+        {
+            par.transform.position = transform.position - new Vector3(0.4f, 0, 0);
             if (par.loop == false) par.Play();
             par.loop = true;
         }
         else par.loop = false;
         
-        par.transform.position = transform.position - new Vector3(0,0.4f,0);
+        
 
         onGround = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, groundLayer)
             || Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, interactives);

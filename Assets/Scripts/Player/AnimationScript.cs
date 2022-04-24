@@ -42,4 +42,5 @@ public class AnimationScript : MonoBehaviour
     {
         anim.SetTrigger(trigger);
     }
+
 }
