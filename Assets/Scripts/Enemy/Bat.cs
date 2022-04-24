@@ -17,13 +17,16 @@ public class Bat : Enemy
     
     Vector3 m_StartPosition;
 
+    Animator m_animator;
     
     void Start()
-    {
+    {   m_animator = GetComponent<Animator>();
         m_StartPosition = transform.position;
         FollowTime = m_FollowTime;
         m_isFoundPlayer = false;
         m_isGoingBack = false;
+        m_animator.SetBool("isIdle",true);
+        m_animator.SetBool("isFlying",false);
     }
     void Update()
     {   
@@ -33,12 +36,16 @@ public class Bat : Enemy
                 transform.up = Vector3.down;
                 FollowTime = m_FollowTime;
                 m_isGoingBack = false;
+                m_animator.SetBool("isIdle",true);
+                m_animator.SetBool("isFlying",false);
             }
         }
         else CheckFoundPlayer();
         
         if(m_isFoundPlayer){
             MoveToPlayer();
+            m_animator.SetBool("isIdle",false);
+            m_animator.SetBool("isFlying",true);
             FollowTime -= Time.deltaTime;
             if(FollowTime <= 0){
                 m_isFoundPlayer = false;
@@ -63,5 +70,5 @@ public class Bat : Enemy
         if(Vector3.Distance(transform.position,player.transform.position) <= m_Distance){
             m_isFoundPlayer = true;
         }   
-    }
+    }    
 }
