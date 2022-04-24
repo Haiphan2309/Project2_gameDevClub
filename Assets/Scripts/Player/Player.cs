@@ -10,21 +10,23 @@ public class Player : MonoBehaviour
     private Collision coll;
     private GameObject dieObj, jumpDust, gameController;
 
-
     public float speed = 10;
     public float jumpForce = 10;
     public float slideSpeed = 5;
     public float wallJumpLerp = 10;
-    public float dashSpeed = 20;
+    public float dashSpeed = 7;
+    public float dashTime = 0.5f;
+    private Vector2 dashdir;
 
     public bool wallJumped;
     public bool canMove=true;
     public bool onGround;
     public bool isPressingKey;
     public bool wallSlide;
+    public bool isDashing;
 
     private bool groundTouch;
-    private bool hasDashed;
+    private bool hasDashed=false;
 
     void Start()
     {
@@ -93,11 +95,8 @@ public class Player : MonoBehaviour
             }  
         }
 
-        if (Input.GetButtonDown("Fire1") && !hasDashed)
-        {
-            if (xRaw != 0 || yRaw != 0)
-                Dash(xRaw, yRaw);
-        }
+        DashInit(xRaw, yRaw);
+        Dash();
 
         if (coll.onGround && !groundTouch)
         {
@@ -117,18 +116,31 @@ public class Player : MonoBehaviour
         hasDashed = false;
     }
 
-    private void Dash(float x, float y)
+    private void Dash()
+    {
+        if (isDashing)
+        {
+            rb.velocity = dashdir.normalized * dashSpeed;
+        }
+    }
+
+    private void DashInit(float x, float y)
     {
         //Can 1 cai shake o day
 
-        hasDashed = true;
-
-        anim.SetTrigger("dash");
-
-        rb.velocity = Vector2.zero;
-        Vector2 dir = new Vector2(x, y);
-
-        rb.velocity += dir.normalized * dashSpeed;
+        if(Input.GetButtonDown("Dash") && !hasDashed)
+        {
+            isDashing = true;
+            hasDashed = true;
+            rb.velocity = Vector2.zero;
+            dashdir = new Vector2(x, y);
+            if(dashdir == Vector2.zero)
+            {
+                dashdir = new Vector2(transform.localScale.x, 0);
+            }
+        
+            StartCoroutine(StopDashing());
+        }
     }
 
     private void Walk(Vector2 dir)
@@ -208,6 +220,15 @@ public class Player : MonoBehaviour
     void CanMove()
     {
         canMove = true;
+    }
+
+    IEnumerator StopDashing()
+    {
+        yield return new WaitForSeconds(dashTime);
+        if (coll.onGround)
+            hasDashed = false;
+        isDashing = false;
+        rb.velocity = Vector2.zero;
     }
 
     IEnumerator DisableMovement(float time)
