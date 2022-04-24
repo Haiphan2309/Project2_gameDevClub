@@ -8,6 +8,7 @@ TagManager:
   - UndefeatEnemy
   - Plate
   - AnimPlayer
+  - Bat
   layers:
   - Default
   - TransparentFX

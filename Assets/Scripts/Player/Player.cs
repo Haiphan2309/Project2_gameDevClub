@@ -192,7 +192,20 @@ public class Player : MonoBehaviour
             rb.velocity += dir * jumpForce;
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bat")
+        {
+            if (transform.position.y - collision.transform.position.y > 0.4f)
+            {
+                canMove = false;
+                rb.velocity = new Vector2(rb.velocity.x, 6);
+                collision.gameObject.GetComponent<Enemy>().GetHit();
+                Invoke("CanMove", 0.3f);
+            }
+            else Die();
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log(collision.contacts[0].normal.y);

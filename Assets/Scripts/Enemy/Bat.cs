@@ -30,31 +30,38 @@ public class Bat : Enemy
     }
     void Update()
     {
-        if (HP <= 0) Die();
+        if (isDie == false)
+        {
+            if (HP <= 0) Die();
 
-        if(m_isGoingBack){
-            BackToStart();
-            if(transform.position == m_StartPosition){
-                transform.up = Vector3.down;
-                FollowTime = m_FollowTime;
-                m_isGoingBack = false;
-                m_animator.SetBool("isIdle",true);
-                m_animator.SetBool("isFlying",false);
+            if (m_isGoingBack)
+            {
+                BackToStart();
+                if (transform.position == m_StartPosition)
+                {
+                    transform.up = Vector3.down;
+                    FollowTime = m_FollowTime;
+                    m_isGoingBack = false;
+                    m_animator.SetBool("isIdle", true);
+                    m_animator.SetBool("isFlying", false);
+                }
+            }
+            else CheckFoundPlayer();
+
+            if (m_isFoundPlayer)
+            {
+                MoveToPlayer();
+                m_animator.SetBool("isIdle", false);
+                m_animator.SetBool("isFlying", true);
+                FollowTime -= Time.deltaTime;
+                if (FollowTime <= 0)
+                {
+                    m_isFoundPlayer = false;
+                    m_isGoingBack = true;
+                }
             }
         }
-        else CheckFoundPlayer();
-        
-        if(m_isFoundPlayer){
-            MoveToPlayer();
-            m_animator.SetBool("isIdle",false);
-            m_animator.SetBool("isFlying",true);
-            FollowTime -= Time.deltaTime;
-            if(FollowTime <= 0){
-                m_isFoundPlayer = false;
-                m_isGoingBack = true;
-            }
-        }
-       
+
     }
 
     void MoveToPlayer(){
