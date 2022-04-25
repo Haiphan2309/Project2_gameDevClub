@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     protected Animator anim;
     Collider2D coli;
 
-    protected GameObject player;
+    protected GameObject originPlayer, player;
     public GameObject dieObj;
     protected bool isDie = false;
     void Awake()
@@ -20,9 +20,21 @@ public class Enemy : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         coli = gameObject.GetComponent<Collider2D>();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        originPlayer = GameObject.FindGameObjectWithTag("Player");
+        player = originPlayer;
     }
 
+    private void LateUpdate()
+    {
+        if (originPlayer.GetComponent<Player>().isGhost == true)
+        {
+            targetGhost();
+        }
+        else
+        {
+            targetPlayer();
+        }
+    }
     public void GetHit()
     {
         HP--;
@@ -41,6 +53,15 @@ public class Enemy : MonoBehaviour
         sprRen.flipY = true;
         coli.isTrigger = true;
         Destroy(gameObject, 5);
+    }
+
+    public void targetPlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+    public void targetGhost()
+    {
+        player = GameObject.FindGameObjectWithTag("Ghost");
     }
 
     private void OnCollisionStay2D(Collision2D collision)

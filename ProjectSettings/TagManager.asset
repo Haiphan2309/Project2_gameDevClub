@@ -9,6 +9,7 @@ TagManager:
   - Plate
   - AnimPlayer
   - Bat
+  - Ghost
   layers:
   - Default
   - TransparentFX

@@ -37,8 +37,20 @@ public class CameraController : MonoBehaviour
         {
             // Tao camera di chuyen theo player
             Vector3 target = obj.transform.position;
-            target.x = player.position.x;
-            target.y = player.position.y;
+            if (player.GetComponent<Player>().isGhost == true)
+            {
+                GameObject ghost = GameObject.FindGameObjectWithTag("Ghost");
+                if (ghost != null)
+                {
+                    target.x = (player.position.x + ghost.transform.position.x) / 2;
+                    target.y = (player.position.y + ghost.transform.position.y) / 2;
+                }
+            }
+            else
+            {
+                target.x = player.position.x;
+                target.y = player.position.y;
+            }
 
             if (target.x < minX) target.x = minX;
             if (target.x > maxX) target.x = maxX;
@@ -84,6 +96,16 @@ public class CameraController : MonoBehaviour
     {
         anim.Play("SlideLeft");
         isFollowPlayer = false;
+    }
+
+    public static void ZoomIn()
+    {
+        anim.Play("ZoomIn");
+    }
+
+    public static void ZoomOut()
+    {
+        anim.Play("ZoomOut");
     }
 
     void FollowPlayer()

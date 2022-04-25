@@ -93,6 +93,7 @@ public class Player : MonoBehaviour
                 isGhost = false;
                 canMove = true;
                 Destroy(ghostclone);
+                CameraController.ZoomIn();
             }
             else
             {
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour
                 canMove = false;
                 rb.velocity = Vector2.zero;
                 ghostclone = Instantiate(ghost, player.transform);
+                CameraController.ZoomOut();
             }
         }
 
@@ -155,7 +157,7 @@ public class Player : MonoBehaviour
 
     private void DashInit(float x, float y)
     {
-        if (Input.GetButtonDown("Dash") && !hasDashed)
+        if (Input.GetButtonDown("Dash") && !hasDashed && canMove)
         {
             //Hieu ung Shake + bui luc nhay
             CameraController.LightShake();
@@ -183,7 +185,10 @@ public class Player : MonoBehaviour
     private void Walk(Vector2 dir)
     {
         if (!canMove)
+        {
+            GetComponent<Collision>().onWalk = false;
             return;
+        }
 
         if (dir.x >= -0.1f && dir.x <= 0.1f)
             GetComponent<Collision>().onWalk = false;
