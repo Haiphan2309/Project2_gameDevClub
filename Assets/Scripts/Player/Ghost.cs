@@ -8,6 +8,7 @@ public class Ghost : MonoBehaviour
     public Rigidbody2D rb;
     private GAnimationScript anim;
     private Collision coll;
+    public GameObject visual;
 
     public float speed = 10;
 
@@ -19,6 +20,7 @@ public class Ghost : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<GAnimationScript>();
+
     }
 
     // Update is called once per frame

@@ -7,10 +7,13 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     private AnimationScript anim;
+    [HideInInspector]
     private Collision coll;
     private GameObject gameController;
 
     public GameObject dieObj, jumpDust, afterImage; //Chet, bui, du anh
+    public GameObject ghost, player;
+    private GameObject ghostclone;
 
     public float speed = 10;
     public float jumpForce = 10;
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour
     public bool isPressingKey;
     public bool wallSlide;
     public bool isDashing;
+    public bool isGhost=false;
 
     private bool groundTouch;
     private bool hasDashed=false;
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Physics2D.IgnoreCollision(ghost.GetComponent<BoxCollider2D>(), player.GetComponent<BoxCollider2D>(), true);
         isPressingKey = false;
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -81,6 +86,22 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown("z"))
+        {
+            if (isGhost)
+            {
+                isGhost = false;
+                canMove = true;
+                Destroy(ghostclone);
+            }
+            else
+            {
+                isGhost = true;
+                canMove = false;
+                rb.velocity = Vector2.zero;
+                ghostclone = Instantiate(ghost, player.transform);
+            }
+        }
 
         if (wallSlide)
         {
@@ -121,7 +142,7 @@ public class Player : MonoBehaviour
 
     private void Dash()
     {
-        if (isDashing)
+        if (isDashing && canMove)
         {
             rb.velocity = dashdir.normalized * dashSpeed;
         }
@@ -178,8 +199,9 @@ public class Player : MonoBehaviour
     }
 
     private void Jump(Vector2 dir, bool push)
-    { 
-
+    {
+        if (!canMove)
+            return;
         onGround = false;
         if (push)
         {
@@ -244,9 +266,9 @@ public class Player : MonoBehaviour
 
     IEnumerator StopDashing()
     {
-        yield return new WaitForSeconds(dashTime);
         if (coll.onGround)
             hasDashed = false;
+        yield return new WaitForSeconds(dashTime);
         isDashing = false;
         rb.velocity = Vector2.zero;
     }
@@ -277,6 +299,8 @@ public class Player : MonoBehaviour
 
     private void WallJump()
     {
+
+
         StopCoroutine(DisableMovement(0));
         StartCoroutine(DisableMovement(.1f));
 

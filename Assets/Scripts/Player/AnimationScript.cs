@@ -29,6 +29,7 @@ public class AnimationScript : MonoBehaviour
         anim.SetBool("onLeftWall", coll.onLeftWall);
         anim.SetBool("onWall", coll.onWall);
         anim.SetBool("wallSlide", move.wallSlide);
+        anim.SetBool("ghost", move.isGhost);
     }
 
     public void SetHorizontalMovement(float x, float y, float yVer)
