@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2986561505402130719}
   - component: {fileID: 2986561505402130716}
   - component: {fileID: 2986561505402130717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BigSpikeBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 2986561506098622170}
   - component: {fileID: 2986561506098622168}
   - component: {fileID: 2986561506098622171}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 2986561506155532591}
   - component: {fileID: 2986561506155532589}
   - component: {fileID: 2986561506155532588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikeTop
   m_TagString: UndefeatEnemy
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 1019986122124750734}
   - component: {fileID: 2434066286519800802}
   - component: {fileID: 2049051642787218176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikeTop (1)
   m_TagString: UndefeatEnemy
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 8893450176240042741}
   - component: {fileID: 1136566981808764541}
   - component: {fileID: 5397334394097153867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpikeTop (2)
   m_TagString: UndefeatEnemy
   m_Icon: {fileID: 0}

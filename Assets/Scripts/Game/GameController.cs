@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     //public GameObject obj;
     GameObject player;
     static public int room = 1, level = 1;
+
+    [SerializeField] Text diamondPoint;
+    static public int point;
 
     private void Awake()
     {
@@ -49,6 +53,8 @@ public class GameController : MonoBehaviour
                 CameraController.maxX = 20;
             }
         }
+
+        diamondPoint.text = "Diamond: " + point.ToString();
     }
 
     public void ReStartLevel()
