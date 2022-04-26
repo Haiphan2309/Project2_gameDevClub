@@ -18,6 +18,8 @@ public class Ghost : MonoBehaviour
     public GameObject dieObj;
     public ParticleSystem obtainEffect;
 
+    bool isBlinking = false;
+
     GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,12 @@ public class Ghost : MonoBehaviour
 
         Fly(dir);
         anim.SetHorizontalMovement(x, y);
+
+        if (player.GetComponent<Player>().ghostTimeRemain <= 3 && isBlinking == false)
+        {
+            isBlinking = true;
+            anim.Blinking();
+        }
     }
 
     private void Fly(Vector2 dir)

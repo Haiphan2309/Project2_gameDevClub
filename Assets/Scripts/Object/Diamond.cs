@@ -6,9 +6,12 @@ public class Diamond : MonoBehaviour
 {
     GameObject player;
     [SerializeField] ParticleSystem obtainEffect;
+
+    bool isObtain = false;
     // Start is called before the first frame update
     void Start()
     {
+        if (isObtain) Destroy(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -16,13 +19,10 @@ public class Diamond : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            isObtain = true;
+            Instantiate(obtainEffect, transform.position, Quaternion.identity);
+            GameController.point++;
             Destroy(gameObject);
         }
-    }
-
-    private void OnDestroy()
-    {
-        Instantiate(obtainEffect, transform.position, Quaternion.identity);
-        GameController.point++;
     }
 }

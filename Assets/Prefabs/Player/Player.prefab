@@ -103,9 +103,13 @@ MonoBehaviour:
   speed: 5
   jumpForce: 12
   slideSpeed: 5
-  wallJumpLerp: 1
+  wallJumpLerp: 3
   dashSpeed: 20
   dashTime: 0.15
+  GhostBack: 6
+  GhostCD: 1
+  ghostTimeRemain: 0
+  Gcount: 0
   wallJumped: 0
   canMove: 1
   onGround: 0

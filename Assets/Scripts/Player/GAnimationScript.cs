@@ -15,6 +15,7 @@ public class GAnimationScript : MonoBehaviour
         anim = GetComponent<Animator>();
         move = GetComponentInParent<Ghost>();
         coll = GetComponentInParent<Collision>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -33,5 +34,21 @@ public class GAnimationScript : MonoBehaviour
     public void SetTrigger(string trigger)
     {
         anim.SetTrigger(trigger);
+    }
+
+    public void Blinking()
+    {
+        Color c = sr.material.color;
+        c.a = 0.5f;
+        sr.material.color = c;
+        Invoke("NoBlinking", 0.2f);
+    }
+
+    public void NoBlinking()
+    {
+        Color c = sr.material.color;
+        c.a = 1;
+        sr.material.color = c;
+        Invoke("Blinking", 0.5f);
     }
 }

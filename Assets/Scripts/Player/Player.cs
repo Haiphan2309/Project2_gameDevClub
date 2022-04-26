@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
     public float wallJumpLerp = 10;
     public float dashSpeed = 7;
     public float dashTime = 0.5f;
-    public float GhostBack = 4f;
+    public float GhostBack = 6f;
     private float GB;
-    public float GhostCD = 1f;
+    public float GhostCD = 1f, ghostTimeRemain = 0;
     private float GCD;
     private Vector2 dashdir;
 
@@ -91,6 +91,8 @@ public class Player : MonoBehaviour
                 WallJump();
             }
         }
+
+        if (isGhost) ghostTimeRemain = GB - Time.time;
 
         if ((Input.GetKeyDown("z") || (GB <= Time.time && isGhost)) && (GCD <= Time.time))
         {
@@ -247,6 +249,7 @@ public class Player : MonoBehaviour
             }
             else Die();
         }
+        if (collision.gameObject.tag == "UndefeatEnemy") Die();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
