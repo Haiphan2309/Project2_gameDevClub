@@ -27,13 +27,13 @@ public class EdgeOfRoom : MonoBehaviour
     {
         if (collision.gameObject.tag=="Player")
         {
-            
-            if (player.transform.position.x > transform.position.x && id == GameController.room)
+
+            if (player.transform.position.x > transform.position.x && id == GameController.room + 1) 
             {
                 CameraController.SlideRight();
                 GameController.room++;
             }
-            if (player.transform.position.x < transform.position.x && id == GameController.room - 1)
+            if (player.transform.position.x < transform.position.x && id == GameController.room) 
             {
                 CameraController.SlideLeft();
                 GameController.room--;

@@ -39,10 +39,12 @@ public class Bat : Enemy
                 BackToStart();
                 if (transform.position == m_StartPosition)
                 {
+                    transform.localScale = new Vector3(1, -1, 1);
+
                     transform.up = Vector3.down;
                     FollowTime = m_FollowTime;
                     m_isGoingBack = false;
-                    m_animator.SetBool("isIdle", true);
+                    m_animator.SetBool("isIdle", true);                
                     m_animator.SetBool("isFlying", false);
                 }
             }
@@ -51,6 +53,8 @@ public class Bat : Enemy
             if (m_isFoundPlayer)
             {
                 MoveToPlayer();
+                transform.localScale = new Vector3(1, 1, 1);
+
                 m_animator.SetBool("isIdle", false);
                 m_animator.SetBool("isFlying", true);
                 FollowTime -= Time.deltaTime;

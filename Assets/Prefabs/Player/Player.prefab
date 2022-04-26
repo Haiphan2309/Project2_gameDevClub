@@ -113,6 +113,7 @@ MonoBehaviour:
   wallSlide: 0
   isDashing: 0
   isGhost: 0
+  obtainEffect: {fileID: 6191181113307684643, guid: 6ebe02f674eb9f84799f6a1f70ee8db8, type: 3}
 --- !u!114 &4558214837811841455
 MonoBehaviour:
   m_ObjectHideFlags: 0

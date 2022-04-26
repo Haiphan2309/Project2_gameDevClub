@@ -60,7 +60,7 @@ public class CameraController : MonoBehaviour
             obj.transform.position = Vector3.Lerp(obj.transform.position, target, moveSpeed * Time.deltaTime);
         }
 
-        if (isFollowPlayer == false) Invoke("FollowPlayer", 1);
+        if (isFollowPlayer == false) Invoke("FollowPlayer", 0.5f);
     }
 
     private void FixedUpdate()

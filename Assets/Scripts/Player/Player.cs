@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private bool groundTouch;
     private bool hasDashed=false;
 
+    public ParticleSystem obtainEffect;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -285,12 +286,13 @@ public class Player : MonoBehaviour
         canMove = true;
     }
 
-    void Die()
+    public void Die()
     {
         CameraController.Shake();
         GameObject dieObject;
         dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
         Destroy(dieObject, 1);
+        Instantiate(obtainEffect, transform.position, Quaternion.identity);
 
         transform.localScale = new Vector3(0,0,0); //xoa hinh anh Player luc chet
         Destroy(gameObject,1);

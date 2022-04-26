@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rigi;
     protected SpriteRenderer sprRen;
     protected Animator anim;
-    Collider2D coli;
+    protected Collider2D coli;
 
     protected GameObject originPlayer, player;
     public GameObject dieObj;

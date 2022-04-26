@@ -8,10 +8,16 @@ public class GameController : MonoBehaviour
 {
     //public GameObject obj;
     GameObject player;
-    static public int room = 1, level = 1;
+    static public int room = 0;
 
     [SerializeField] Text diamondPoint;
     static public int point;
+
+    public float[] minX = new float[5];
+    public float[] maxX = new float[5];
+    public float[] minY = new float[5];
+    public float[] maxY = new float[5];
+    public Vector2[] playerPos = new Vector2[5];
 
     private void Awake()
     {
@@ -20,39 +26,16 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (level == 1)
-        {
-            if (room == 1)
-            {
-                CameraController.minX = -20;
-                CameraController.maxX = 0;
-                player.transform.position = new Vector3(0, 0, 0);
-            }
-            if (room == 2)
-            {
-                player.transform.position = new Vector3(11, 1, 0);
-                CameraController.minX = 20;
-                CameraController.maxX = 20;
-            }
-        }
+        CameraController.minX = minX[room];
+        CameraController.maxX = maxX[room];
+        player.transform.position = new Vector3(playerPos[room].x, playerPos[room].y, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (level == 1)
-        {
-            if (room == 1)
-            {
-                CameraController.minX = -20;
-                CameraController.maxX = 0;
-            }
-            if (room == 2)
-            {
-                CameraController.minX = 20;
-                CameraController.maxX = 20;
-            }
-        }
+        CameraController.minX = minX[room];
+        CameraController.maxX = maxX[room];
 
         diamondPoint.text = "Diamond: " + point.ToString();
     }
