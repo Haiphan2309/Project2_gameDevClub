@@ -21,8 +21,13 @@ public class Player : MonoBehaviour
     public float wallJumpLerp = 10;
     public float dashSpeed = 7;
     public float dashTime = 0.5f;
+    public float GhostBack = 4f;
+    private float GB;
+    public float GhostCD = 1f;
+    private float GCD;
     private Vector2 dashdir;
 
+    public bool Gcount;
     public bool wallJumped;
     public bool canMove=true;
     public bool onGround;
@@ -30,6 +35,7 @@ public class Player : MonoBehaviour
     public bool wallSlide;
     public bool isDashing;
     public bool isGhost=false;
+
 
     private bool groundTouch;
     private bool hasDashed=false;
@@ -40,14 +46,13 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<AnimationScript>();
         coll = GetComponent<Collision>();
-
+        Gcount = false;
         gameController = GameObject.FindGameObjectWithTag("GameController");
     }
 
 
     void Update()
     {
-        Physics2D.IgnoreCollision(ghost.GetComponent<BoxCollider2D>(), player.GetComponent<BoxCollider2D>(), true);
         isPressingKey = false;
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -87,17 +92,19 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("z"))
+        if ((Input.GetKeyDown("z") || (GB <= Time.time && isGhost)) && (GCD <= Time.time))
         {
             if (isGhost)
             {
                 isGhost = false;
                 canMove = true;
+                GCD = Time.time + GhostCD;
                 Destroy(ghostclone);
                 CameraController.ZoomIn();
             }
             else
             {
+                GB = Time.time + GhostBack;
                 isGhost = true;
                 canMove = false;
                 rb.velocity = Vector2.zero;
@@ -118,7 +125,7 @@ public class Player : MonoBehaviour
                 float push = pushingWall ? 0 : rb.velocity.x;
 
                 rb.velocity = new Vector2(push, Mathf.Clamp(rb.velocity.y, -slideSpeed, float.MaxValue));
-            }  
+            }
         }
 
         DashInit(xRaw, yRaw);
@@ -158,7 +165,7 @@ public class Player : MonoBehaviour
 
     private void DashInit(float x, float y)
     {
-        if (Input.GetButtonDown("Dash") && !hasDashed && canMove)
+        if (Input.GetButtonDown("Dash") && !hasDashed && !isGhost)
         {
             //Hieu ung Shake + bui luc nhay
             CameraController.LightShake();
@@ -192,8 +199,14 @@ public class Player : MonoBehaviour
         }
 
         if (dir.x >= -0.1f && dir.x <= 0.1f)
+        {
             GetComponent<Collision>().onWalk = false;
-        else GetComponent<Collision>().onWalk = true;
+        }
+        else
+        {
+            GetComponent<Collision>().onWalk = true;
+        }
+
         if (!wallJumped)
         {
             rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
@@ -206,12 +219,13 @@ public class Player : MonoBehaviour
 
     private void Jump(Vector2 dir, bool push)
     {
-        if (!canMove)
+        if (isGhost)
             return;
+
         onGround = false;
         if (push)
         {
-            rb.velocity = new Vector2(-rb.velocity.x, 0);
+            rb.velocity = new Vector2(0, 0);
             rb.velocity += dir * jumpForce;
         }
         else
@@ -305,16 +319,13 @@ public class Player : MonoBehaviour
     }
 
     private void WallJump()
-    {
-
-
+    { 
         StopCoroutine(DisableMovement(0));
         StartCoroutine(DisableMovement(.1f));
 
         Vector2 wallDir = coll.onRightWall ? Vector2.left : Vector2.right;
 
-        Jump(Vector2.up/1.5f + wallDir/1.5f,false);
-
+        Jump(Vector2.up/1.5f + wallDir/1.5f, true);
         wallJumped = true;
 
         //Hieu ung bui:

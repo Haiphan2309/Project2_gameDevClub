@@ -19,13 +19,13 @@ public class Ghost : MonoBehaviour
     public ParticleSystem obtainEffect;
 
     GameObject player;
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<GAnimationScript>();
         player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame

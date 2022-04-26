@@ -3902,11 +3902,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: eb9f2eea8cdfda948bd87af0ff197d7f, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5478,7 +5478,7 @@ Tilemap:
       - {fileID: 8457786207878779394, guid: ced85ed48d4f8f645a97eafe461d9dbd, type: 3}
       - {fileID: 4675813553885716397, guid: ced85ed48d4f8f645a97eafe461d9dbd, type: 3}
       - {fileID: -6450482788230422745, guid: ced85ed48d4f8f645a97eafe461d9dbd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 28, y: -3, z: 0}
@@ -5723,6 +5723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PumpkinMon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4324245653397764640, guid: 1666fe906b6292441900c9ddcfa5833f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4324245653397764652, guid: 1666fe906b6292441900c9ddcfa5833f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5823,6 +5827,10 @@ PrefabInstance:
     - target: {fileID: 6421859234627008430, guid: a8c761c2d9ce8a64bad8cd94eac207e3, type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421859234627008430, guid: a8c761c2d9ce8a64bad8cd94eac207e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8c761c2d9ce8a64bad8cd94eac207e3, type: 3}
@@ -6863,6 +6871,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4558214837811841450, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
+      propertyPath: back
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558214837811841450, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
       propertyPath: ghost
       value: 
       objectReference: {fileID: 1840246465507642851, guid: fea29297d3a585d4ea7a6fbcee9ee045, type: 3}
@@ -6870,6 +6882,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 389360118}
+    - target: {fileID: 4558214837811841450, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
+      propertyPath: wallJumpLerp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4558214837811841453, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
       propertyPath: m_RootOrder
       value: 6
