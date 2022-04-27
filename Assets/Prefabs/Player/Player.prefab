@@ -102,7 +102,7 @@ MonoBehaviour:
   player: {fileID: 4558214837811841454}
   speed: 5
   jumpForce: 12
-  slideSpeed: 5
+  slideSpeed: 3
   wallJumpLerp: 3
   dashSpeed: 20
   dashTime: 0.15

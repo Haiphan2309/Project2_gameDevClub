@@ -27,13 +27,16 @@ public class Enemy : MonoBehaviour
     private void LateUpdate()
     {
         if (HP <= 0 && isDie == false) Die();
-        if (originPlayer.GetComponent<Player>().isGhost == true)
+        if (originPlayer != null)
         {
-            targetGhost();
-        }
-        else
-        {
-            targetPlayer();
+            if (originPlayer.GetComponent<Player>().isGhost == true)
+            {
+                targetGhost();
+            }
+            else
+            {
+                targetPlayer();
+            }
         }
     }
     public void GetHit()
