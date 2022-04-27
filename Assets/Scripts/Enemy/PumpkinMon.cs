@@ -19,10 +19,10 @@ public class PumpkinMon : Enemy
 
     private void Update()
     {
-        if (isDie == false)
-        {
-            if (HP <= 0) Die();
-        }
+        //if (isDie == false)
+        //{
+        //    if (HP <= 0) Die();
+        //}
         if (moveVec.x > 0) sprRen.flipX = true;
         else sprRen.flipX = false;
     }

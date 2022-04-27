@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (HP <= 0 && isDie == false) Die();
         if (originPlayer.GetComponent<Player>().isGhost == true)
         {
             targetGhost();
@@ -48,7 +49,7 @@ public class Enemy : MonoBehaviour
         dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
         Destroy(dieObject, 1);
 
-        anim.speed = 0;
+        if (anim != null) anim.speed = 0;
         rigi.gravityScale = 1;
         sprRen.flipY = true;
         coli.isTrigger = true;

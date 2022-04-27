@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        if (player.GetComponent<Player>().isGhost) player = GameObject.FindGameObjectWithTag("Ghost");
         rigi = gameObject.GetComponent<Rigidbody2D>();
         coli = gameObject.GetComponent<Collider2D>();
     }

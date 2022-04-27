@@ -32,7 +32,7 @@ public class Bat : Enemy
     {
         if (isDie == false)
         {
-            if (HP <= 0) Die();
+            //if (HP <= 0) Die();
 
             if (m_isGoingBack)
             {

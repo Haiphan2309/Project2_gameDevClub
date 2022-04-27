@@ -19,7 +19,7 @@ public class Slime : Enemy
     {
         if (isDie == false)
         {
-            if (HP <= 0) Die();
+            //if (HP <= 0) Die();
             if (isGround) Invoke("Jump", 0.3f);
         }
     }
