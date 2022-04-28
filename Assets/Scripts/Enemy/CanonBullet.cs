@@ -2,18 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanonBullet : Enemy
+public class CanonBullet : MonoBehaviour
 {   
     [SerializeField] float speed;
 
+    [SerializeField] GameObject dieObj;
+
     Vector3 dir;
+    Canon canon;
     // Start is called before the first frame update
     void Start()
-    {
-        Canon canon = FindObjectOfType<Canon>();  
+    {   
+        transform.localScale = canon.transform.localScale;
+        Debug.Log("bullet of " + canon.name);
         dir = canon.GetDirection();
         GameObject dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
         Destroy(dieObject, 1);
+        
     }
 
     // Update is called once per frame
@@ -30,6 +35,10 @@ public class CanonBullet : Enemy
             Destroy(dieObject, 1);
             Destroy(gameObject);
         }
+    }
+
+    public void GetCanon(GameObject canon){
+        this.canon = canon.GetComponent<Canon>();
     }
 
 }
