@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class Data
 {
-    public static List<Diamond> diamonds = new List<Diamond>();
+    public static List<DiamondInfo> diamonds = new List<DiamondInfo>();
 }
