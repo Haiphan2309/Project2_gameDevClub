@@ -5556,7 +5556,7 @@ Tilemap:
       - {fileID: 8457786207878779394, guid: ced85ed48d4f8f645a97eafe461d9dbd, type: 3}
       - {fileID: 4675813553885716397, guid: ced85ed48d4f8f645a97eafe461d9dbd, type: 3}
       - {fileID: -6450482788230422745, guid: ced85ed48d4f8f645a97eafe461d9dbd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -6925,6 +6925,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7880023886677665155, guid: b31ce390dfd52814a8b71cfa02b6fb11, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880023886677665155, guid: b31ce390dfd52814a8b71cfa02b6fb11, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.11
       objectReference: {fileID: 0}
@@ -6963,6 +6967,14 @@ PrefabInstance:
     - target: {fileID: 7880023886677665155, guid: b31ce390dfd52814a8b71cfa02b6fb11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880023886677665164, guid: b31ce390dfd52814a8b71cfa02b6fb11, type: 3}
+      propertyPath: leftRoom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880023886677665164, guid: b31ce390dfd52814a8b71cfa02b6fb11, type: 3}
+      propertyPath: rightRoom
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31ce390dfd52814a8b71cfa02b6fb11, type: 3}

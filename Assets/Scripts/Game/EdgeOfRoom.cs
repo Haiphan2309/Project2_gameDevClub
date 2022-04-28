@@ -5,38 +5,44 @@ using UnityEngine;
 public class EdgeOfRoom : MonoBehaviour
 {
     GameObject player;
-    public int id;
+    public int leftRoom, rightRoom;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag=="Player")
         {
-
-            if (player.transform.position.x > transform.position.x && id == GameController.room + 1) 
+            if (player.transform.position.x > transform.position.x) 
             {
+                if (leftRoom < rightRoom)
+                {
+                    if (GameController.room + 1 > rightRoom) return;
+                    GameController.room++;                   
+                }
+                if (rightRoom < leftRoom)
+                {
+                    if (GameController.room - 1 < rightRoom) return;
+                    GameController.room--;
+                }
                 CameraController.SlideRight();
-                GameController.room++;
             }
-            if (player.transform.position.x < transform.position.x && id == GameController.room) 
-            {
+            if (player.transform.position.x < transform.position.x/* && id == GameController.room*/) 
+            {               
+                if (leftRoom < rightRoom)
+                {
+                    if (GameController.room - 1 < leftRoom) return;
+                    GameController.room--;
+                }
+                if (rightRoom < leftRoom)
+                {
+                    if (GameController.room + 1 > leftRoom) return;
+                    GameController.room++;
+                }
                 CameraController.SlideLeft();
-                GameController.room--;
             }
         }
     }
