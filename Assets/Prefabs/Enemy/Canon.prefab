@@ -144,10 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bullet: {fileID: 8817782649094346174, guid: 75337049310c0c74791245eaba23ed8b, type: 3}
-  m_DeltaTimeAttack: 1
-  m_AttackSpeed: 0
+  m_DeltaTimeAttack: 2
   m_direction: 0
-  m_headDistacne: 0
 --- !u!1 &1439653542239249171
 GameObject:
   m_ObjectHideFlags: 0

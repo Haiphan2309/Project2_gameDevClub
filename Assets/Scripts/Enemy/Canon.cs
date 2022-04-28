@@ -32,7 +32,7 @@ public class Canon : MonoBehaviour
         head = GameObject.Find("Head");
         //m_animator.SetBool("isFire", true);
 
-        InvokeRepeating("SetFireTrue", m_DeltaTimeAttack, m_DeltaTimeAttack);
+        InvokeRepeating("SetFire", m_DeltaTimeAttack, m_DeltaTimeAttack);
     }
 
     // Update is called once per frame
@@ -46,14 +46,14 @@ public class Canon : MonoBehaviour
         //}
     }
 
-    void SetFireTrue()
+    void SetFire()
     {
-        m_animator.SetBool("isFire", true);
+        m_animator.Play("fire");
     }
     void Fire(){
         float angle = Vector2.SignedAngle(Vector2.right,(head.transform.position - transform.position));
         Instantiate(m_bullet,head.transform.position,Quaternion.Euler(0,0,angle));
-        m_animator.SetBool("isFire",false);    
+        //m_animator.SetBool("isFire",false);    
     }
 
     public Vector3 GetDirection(){
