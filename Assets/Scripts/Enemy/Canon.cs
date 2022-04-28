@@ -21,7 +21,7 @@ public class Canon : MonoBehaviour
     //float m_FireTime;
     //float FireTime;
 
-    List<Vector3> dirList = new List<Vector3>(){Vector3.right, Vector3.up , Vector3.left , Vector3.up};
+    List<Vector3> dirList = new List<Vector3>(){Vector3.right, Vector3.down , Vector3.left , Vector3.up};
     void Start()
     {
         m_animator = GetComponent<Animator>();
