@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1773169391512607792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 1773169391837512504}
   - component: {fileID: 1773169391837512511}
   - component: {fileID: 1773169391837512510}
-  m_Layer: 0
-  m_Name: CanonY 1
+  m_Layer: 8
+  m_Name: CanonYDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,4 +175,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bullet: {fileID: 5976021144374828633, guid: b488f224387ae93449f6dd56ebf9e7bc, type: 3}
   m_DeltaTimeAttack: 2
-  m_direction: 3
+  m_direction: 1

@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
 
         originPlayer = GameObject.FindGameObjectWithTag("Player");
         player = originPlayer;
+        enabled = false;
     }
 
     private void LateUpdate()
@@ -78,5 +79,14 @@ public class Enemy : MonoBehaviour
         {
             rigi.velocity = new Vector2(-1f, 3f);
         }
+    }
+
+    void OnBecameVisible()
+    {
+        enabled = true;
+    }
+    void OnBecameInvisible()
+    {
+        enabled = false;
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5237902710735131400}
   m_Layer: 0
   m_Name: CanonBulletY
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,5 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879fc7466e1f28f408cf346a5ab84279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 1
+  dieObj: {fileID: 817604638833935751, guid: 9a0f2233a578db9469b1ac3c93063399, type: 3}
   speed: 5
   dieObj: {fileID: 817604638833935751, guid: 9a0f2233a578db9469b1ac3c93063399, type: 3}

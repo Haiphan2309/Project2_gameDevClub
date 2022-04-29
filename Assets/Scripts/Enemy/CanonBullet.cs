@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanonBullet : MonoBehaviour
+public class CanonBullet : Enemy
 {   
     [SerializeField] float speed;
 
-    [SerializeField] GameObject dieObj;
+    //[SerializeField] GameObject dieObj;
 
     Vector3 dir;
     Canon canon;
@@ -24,7 +24,8 @@ public class CanonBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       transform.Translate(dir*speed*Time.deltaTime);
+        if (isDie == false)
+            transform.Translate(dir*speed*Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

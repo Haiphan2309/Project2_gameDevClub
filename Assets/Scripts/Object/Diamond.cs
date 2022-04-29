@@ -19,7 +19,7 @@ public class Diamond : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Ghost")
         {
             info.m_isCollecting = true;
             Instantiate(obtainEffect, transform.position, Quaternion.identity);
