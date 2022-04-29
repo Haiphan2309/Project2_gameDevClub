@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
-    bool isGround;
+    public LayerMask groundLayer;
+    public LayerMask interactives;
+
+    public bool isGround;
     public bool isMoveLeft = true;
     public float speed;
     public GameObject jumpDust;
@@ -17,11 +20,8 @@ public class Slime : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (isDie == false)
-        {
-            //if (HP <= 0) Die();
-            if (isGround) Invoke("Jump", 0.3f);
-        }
+        //isGround = Physics2D.BoxCast(coli.bounds.center, coli.bounds.size, 0f, Vector2.down, .1f, groundLayer)
+        //    || Physics2D.BoxCast(coli.bounds.center, coli.bounds.size, 0f, Vector2.down, .1f, interactives);   
     }
 
     void Jump()
@@ -37,20 +37,35 @@ public class Slime : Enemy
     private void OnCollisionEnter2D(Collision2D other)
     {
         //Debug.Log(other.contacts[0].normal.y);
+        isGround = Physics2D.BoxCast(coli.bounds.center, coli.bounds.size, 0f, Vector2.down, .1f, groundLayer)
+            || Physics2D.BoxCast(coli.bounds.center, coli.bounds.size, 0f, Vector2.down, .1f, interactives);
 
         if (other.contacts[0].normal.x >= 1-0.03f || other.contacts[0].normal.x <= -1+0.03f)
         {
+            isGround = false;
+
             rigi.velocity = new Vector2(other.contacts[0].normal.x, other.contacts[0].normal.y) * 3;
             isMoveLeft = !isMoveLeft;
             if (isMoveLeft) sprRen.flipX = false;
             else sprRen.flipX = true;
         }
-        if (other.contacts[0].normal.y >= 1-0.03f)
+        //if (other.contacts[0].normal.y >= 1-0.03f)
+        //{
+        //    GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0,0.4f,0), Quaternion.identity);
+        //    Destroy(jumpDustObj, 1);
+        //    anim.Play("Move");
+        //    isGround = true;
+        //}
+
+        if (isGround)
         {
-            GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0,0.4f,0), Quaternion.identity);
+            GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.4f, 0), Quaternion.identity);
             Destroy(jumpDustObj, 1);
             anim.Play("Move");
-            isGround = true;
+            if (isDie == false)
+            {
+                Invoke("Jump", 0.3f);
+            }
         }
     }
 }
