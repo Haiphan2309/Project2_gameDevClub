@@ -15,6 +15,8 @@ public class PumpkinMon : Enemy
             moveVec = (player.transform.position - transform.position).normalized;
         //Invoke("Shot", 5);
         InvokeRepeating("Shot", 5, 5);
+
+        enabled = false;
     }
 
     private void Update()
@@ -51,5 +53,14 @@ public class PumpkinMon : Enemy
     void CanMove()
     {
         isCanMove = true;
+    }
+
+    void OnBecameVisible()
+    {
+        enabled = true;
+    }
+    void OnBecameInvisible()
+    {
+        enabled = false;
     }
 }

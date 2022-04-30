@@ -63,7 +63,7 @@ public class Ghost : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bat")
+        if (collision.tag == "Bat" || collision.tag == "UndefeatEnemy")
         {
             Die();
         }

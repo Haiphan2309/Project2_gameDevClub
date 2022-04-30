@@ -6,6 +6,9 @@ public class CanonBullet : Enemy
 {   
     [SerializeField] float speed;
 
+    public ParticleSystem dustEffect;
+    ParticleSystem par;
+
     //[SerializeField] GameObject dieObj;
 
     Vector3 dir;
@@ -18,12 +21,15 @@ public class CanonBullet : Enemy
         dir = canon.GetDirection();
         GameObject dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
         Destroy(dieObject, 1);
-        
+
+        par = Instantiate(dustEffect, transform.position, Quaternion.identity);
+        par.startLifetime = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        par.transform.position = transform.position;
         if (isDie == false)
             transform.Translate(dir*speed*Time.deltaTime);
     }
@@ -36,6 +42,11 @@ public class CanonBullet : Enemy
             Destroy(dieObject, 1);
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        par.loop = false;
     }
 
     public void GetCanon(GameObject canon){

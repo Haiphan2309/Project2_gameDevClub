@@ -256,12 +256,12 @@ public class Player : MonoBehaviour
         //Debug.Log(collision.contacts[0].normal.y);
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "UndefeatEnemy")
         {
-            canMove = false;
+            //canMove = false;
             rb.velocity = new Vector2(collision.contacts[0].normal.x, collision.contacts[0].normal.y) * 6;
             if (collision.contacts[0].normal.y >= 1 - 0.03f && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().GetHit();
-                Invoke("CanMove", 0.3f);
+                //Invoke("CanMove", 0.3f);
             }
             else
             {
@@ -282,10 +282,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    void CanMove()
-    {
-        canMove = true;
-    }
+    //void CanMove()
+    //{
+    //    canMove = true;
+    //}
 
     IEnumerator StopDashing()
     {
@@ -328,7 +328,7 @@ public class Player : MonoBehaviour
 
         Vector2 wallDir = coll.onRightWall ? Vector2.left : Vector2.right;
 
-        Jump(Vector2.up/1.5f + wallDir/1.5f, true);
+        Jump(Vector2.up/1f + wallDir/1.5f, true);
         wallJumped = true;
 
         //Hieu ung bui:

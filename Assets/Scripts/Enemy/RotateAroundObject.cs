@@ -20,7 +20,7 @@ public class RotateAroundObject : Enemy
         y0 = transform.position.y;
         centerPos = new Vector3(x0, y0, 0);
 
-        transform.position = new Vector3(R, 0, 0);
+        transform.position = new Vector3(x0 + R, y0, 0);
 
         //transform.position = (transform.position - centerPos).normalized*R + centerPos;
     }

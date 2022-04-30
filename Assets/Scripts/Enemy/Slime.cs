@@ -15,6 +15,7 @@ public class Slime : Enemy
     void Start()
     {
         speed *= 100;
+        enabled = false;
     }
 
     // Update is called once per frame
@@ -67,5 +68,14 @@ public class Slime : Enemy
                 Invoke("Jump", 0.3f);
             }
         }
+    }
+
+    void OnBecameVisible()
+    {
+        enabled = true;
+    }
+    void OnBecameInvisible()
+    {
+        enabled = false;
     }
 }

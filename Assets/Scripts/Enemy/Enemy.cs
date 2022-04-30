@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
         originPlayer = GameObject.FindGameObjectWithTag("Player");
         player = originPlayer;
-        enabled = false;
+        //enabled = false;
     }
 
     private void LateUpdate()
@@ -81,12 +81,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnBecameVisible()
-    {
-        enabled = true;
-    }
-    void OnBecameInvisible()
-    {
-        enabled = false;
-    }
+    //void OnBecameVisible()
+    //{
+    //    enabled = true;
+    //}
+    //void OnBecameInvisible()
+    //{
+    //    enabled = false;
+    //}
 }
