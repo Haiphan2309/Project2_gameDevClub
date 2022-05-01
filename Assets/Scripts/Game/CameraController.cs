@@ -63,17 +63,13 @@ public class CameraController : MonoBehaviour
         if (isFollowPlayer == false) Invoke("FollowPlayer", 0.5f);
     }
 
-    private void FixedUpdate()
+    public Vector2 CameraPos
     {
-        //if (isScoll)
-        //{
-        //    if (obj.transform.position.x <= maxX)
-        //        rigi.velocity = new Vector3(100 * Time.fixedDeltaTime, 0, 0);
-        //    else
-        //    {
-        //        isScoll = false;
-        //    }
-        //}
+        get { return transform.position; }
+        set { 
+                transform.position = value;
+            transform.position -= new Vector3(0, 0, 10);
+            }
     }
 
     public static void Shake() //rung

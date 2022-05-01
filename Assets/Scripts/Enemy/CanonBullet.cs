@@ -17,13 +17,13 @@ public class CanonBullet : Enemy
     void Start()
     {   
         transform.localScale = canon.transform.localScale;
-        Debug.Log("bullet of " + canon.name);
+        //Debug.Log("bullet of " + canon.name);
         dir = canon.GetDirection();
         GameObject dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
         Destroy(dieObject, 1);
 
         par = Instantiate(dustEffect, transform.position, Quaternion.identity);
-        par.startLifetime = 1;
+        //par.startLifetime = 1;
     }
 
     // Update is called once per frame
@@ -47,6 +47,7 @@ public class CanonBullet : Enemy
     private void OnDestroy()
     {
         par.loop = false;
+        //Destroy(par);
     }
 
     public void GetCanon(GameObject canon){

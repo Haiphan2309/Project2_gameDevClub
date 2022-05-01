@@ -27,7 +27,7 @@ public class Canon : MonoBehaviour
         m_animator = GetComponent<Animator>();
         head = FindChild("Head");
         InvokeRepeating("SetFire", Time.deltaTime, m_DeltaTimeAttack);
-        Debug.Log(gameObject.name + "<- " + head.transform.GetInstanceID());
+        //Debug.Log(gameObject.name + "<- " + head.transform.GetInstanceID());
         
     }
 
