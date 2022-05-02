@@ -295,10 +295,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    //void CanMove()
-    //{
-    //    canMove = true;
-    //}
+    void CanMove()
+    {
+        canMove = true;
+    }
 
     IEnumerator StopDashing()
     {
@@ -335,9 +335,9 @@ public class Player : MonoBehaviour
     }
 
     private void WallJump()
-    { 
+    {
         StopCoroutine(DisableMovement(0));
-        StartCoroutine(DisableMovement(.1f));
+        StartCoroutine(DisableMovement(.2f));
 
         Vector2 wallDir = coll.onRightWall ? Vector2.left : Vector2.right;
 
