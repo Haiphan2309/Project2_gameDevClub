@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour
             if (target.y < minY) target.y = minY;
             if (target.y > maxY) target.y = maxY;
 
-            obj.transform.position = Vector3.Lerp(obj.transform.position, target, moveSpeed * Time.deltaTime);
+            obj.transform.position = Vector3.Lerp(obj.transform.position, target, moveSpeed * Time.deltaTime/Time.timeScale);
         }
 
         if (isFollowPlayer == false) Invoke("FollowPlayer", 0.5f);
@@ -102,6 +102,11 @@ public class CameraController : MonoBehaviour
     public static void ZoomOut()
     {
         anim.Play("ZoomOut");
+    }
+
+    public static void SuperZoomIn()
+    {
+        anim.Play("SuperZoomIn");
     }
 
     void FollowPlayer()

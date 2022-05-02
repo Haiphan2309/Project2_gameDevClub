@@ -250,6 +250,12 @@ public class Player : MonoBehaviour
             else Die();
         }
         if (collision.gameObject.tag == "UndefeatEnemy") Die();
+
+        if (collision.gameObject.tag == "Goal")
+        {
+            Debug.Log("NewLevel");
+            //New Level
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

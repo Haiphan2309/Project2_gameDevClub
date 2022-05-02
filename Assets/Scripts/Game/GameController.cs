@@ -27,10 +27,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CameraController.minX = minX[room];
-        CameraController.maxX = maxX[room];
-        CameraController.minY = minY[room];
-        CameraController.maxY = maxY[room];
+        UpdateRoom();
         player.transform.position = new Vector3(playerPos[room].x, playerPos[room].y, 0);
         cameraObj.GetComponent<CameraController>().CameraPos = new Vector2(minX[room]-3, minY[room]);
     }
@@ -38,12 +35,22 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        diamondPoint.text = "Diamond: " + point.ToString();
+
+        //Chi dung de debug (nhan phim K de sang room ke tiep ngay lap tuc)
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            room++;
+            ReStartLevel();
+        }
+    }
+
+    public void UpdateRoom()
+    {
         CameraController.minX = minX[room];
         CameraController.maxX = maxX[room];
         CameraController.minY = minY[room];
         CameraController.maxY = maxY[room];
-
-        diamondPoint.text = "Diamond: " + point.ToString();
     }
 
     public void ReStartLevel()

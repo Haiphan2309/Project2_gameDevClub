@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 606029159304482804}
   - component: {fileID: 606029159304482807}
   - component: {fileID: 606029159304482806}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SpikeBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 606029159916630065}
   - component: {fileID: 606029159916630067}
   - component: {fileID: 606029159916630064}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Ground_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
