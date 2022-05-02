@@ -7,6 +7,10 @@ public class Collision : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask interactives;
 
+    public Vector3 bottom = new Vector3(0,-0.5f,0);
+    public Vector3 right = new Vector3(0.4f, 0, 0);
+    public Vector3 left = new Vector3(-0.4f, 0, 0);
+
     public bool onGround;
     public bool onWall;
     public bool onRightWall;
@@ -48,14 +52,19 @@ public class Collision : MonoBehaviour
             par.loop = true;
         }
         else par.loop = false;
-        
-        
 
-        onGround = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, groundLayer)
-            || Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, interactives);
-        onRightWall = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.right, .1f, groundLayer);
-        onLeftWall = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.left, .1f, groundLayer);
-        onWall = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.right, .1f, groundLayer)
-            || Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.left, .1f, groundLayer);
+        onGround = Physics2D.OverlapCircle(transform.position + bottom,0.1f,groundLayer) ||
+            Physics2D.OverlapCircle(transform.position + bottom, 0.1f, interactives);
+        onRightWall = Physics2D.OverlapCircle(transform.position + right, 0.1f, groundLayer);
+        onLeftWall = Physics2D.OverlapCircle(transform.position + left, 0.1f, groundLayer);
+        onWall = onRightWall || onLeftWall;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + bottom, 0.1f);
+        Gizmos.DrawWireSphere(transform.position + right, 0.1f);
+        Gizmos.DrawWireSphere(transform.position + left, 0.1f);
     }
 }

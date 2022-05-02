@@ -170,6 +170,9 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Dash") && !hasDashed && !isGhost)
         {
             //Hieu ung Shake + bui luc nhay
+            if (x == 0 && y == 0) return;
+
+            StartCoroutine(GroundDash());
             CameraController.LightShake();
             GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
             Destroy(jumpDustObj, 1);
@@ -183,13 +186,16 @@ public class Player : MonoBehaviour
             hasDashed = true;
             rb.velocity = Vector2.zero;
             dashdir = new Vector2(x, y);
-            if(dashdir == Vector2.zero)
-            {
-                dashdir = new Vector2(transform.localScale.x, 0);
-            }
         
             StartCoroutine(StopDashing());
         }
+    }
+
+    IEnumerator GroundDash()
+    {
+        yield return new WaitForSeconds(.15f);
+        if (coll.onGround)
+            hasDashed = false;
     }
 
     private void Walk(Vector2 dir)
@@ -267,6 +273,7 @@ public class Player : MonoBehaviour
             if (collision.contacts[0].normal.y >= 1 - 0.03f && collision.gameObject.tag == "Enemy")
             {
                 collision.gameObject.GetComponent<Enemy>().GetHit();
+                GroundTouch();
                 //Invoke("CanMove", 0.3f);
             }
             else

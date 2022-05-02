@@ -7064,7 +7064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1137867638898484898, guid: 4afe058c1c18f714a9682a2a169ec4b7, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[4].second.m_AnimationSpeed
-      value: 10.000001
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1137867638898484898, guid: 4afe058c1c18f714a9682a2a169ec4b7, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[5].second.m_AnimationSpeed
@@ -7096,7 +7096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1137867638898484898, guid: 4afe058c1c18f714a9682a2a169ec4b7, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[12].second.m_AnimationSpeed
-      value: 10.000001
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1137867638898484898, guid: 4afe058c1c18f714a9682a2a169ec4b7, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[13].second.m_AnimationSpeed
@@ -7120,7 +7120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1137867638898484898, guid: 4afe058c1c18f714a9682a2a169ec4b7, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[19].second.m_AnimationSpeed
-      value: 10.000001
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1137867638898484898, guid: 4afe058c1c18f714a9682a2a169ec4b7, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[20].second.m_AnimationSpeed
@@ -43183,6 +43183,18 @@ PrefabInstance:
     - target: {fileID: 4558214837811841454, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558214837811841455, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
+      propertyPath: left.x
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558214837811841455, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
+      propertyPath: right.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558214837811841455, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
+      propertyPath: bottom.y
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4558214838085181027, guid: dfe9f1a39d100a64a9f5de4460a45251, type: 3}
       propertyPath: m_Layer
