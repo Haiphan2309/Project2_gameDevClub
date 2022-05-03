@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     {
         UpdateRoom();
         player.transform.position = new Vector3(playerPos[room].x, playerPos[room].y, 0);
-        cameraObj.GetComponent<CameraController>().CameraPos = new Vector2(minX[room]-3, minY[room]);
+        cameraObj.GetComponent<CameraController>().CameraPos = new Vector2(playerPos[room].x-3, playerPos[room].y);
 
         Time.timeScale = 1;
     }
