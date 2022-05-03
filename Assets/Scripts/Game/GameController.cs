@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 {
     //public GameObject obj;
     GameObject player, cameraObj;
-    static public int room = 0;
+    static public int room = 0, level = 0;
 
     [SerializeField] Text diamondPoint;
     static public int point;
@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
         UpdateRoom();
         player.transform.position = new Vector3(playerPos[room].x, playerPos[room].y, 0);
         cameraObj.GetComponent<CameraController>().CameraPos = new Vector2(minX[room]-3, minY[room]);
+
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -42,6 +44,11 @@ public class GameController : MonoBehaviour
         {
             room++;
             ReStartLevel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("Room: " + room + " level: " + level);
         }
     }
 
@@ -56,5 +63,16 @@ public class GameController : MonoBehaviour
     public void ReStartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextLevel()
+    {
+        if (level < 3)
+        {
+            Data.diamonds.Clear();
+            room = 0;
+            level++;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);           
+        }
     }
 }

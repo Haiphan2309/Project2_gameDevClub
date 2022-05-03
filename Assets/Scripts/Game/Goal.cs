@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Goal : MonoBehaviour
 {
     Animator anim;
+    GameObject gameController;
 
     [SerializeField] Text diamondPoint;
 
@@ -13,6 +14,7 @@ public class Goal : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+        gameController = GameObject.FindGameObjectWithTag("GameController");
     }
 
     // Update is called once per frame
@@ -37,5 +39,12 @@ public class Goal : MonoBehaviour
 
             diamondPoint.text = "Your Diamonds: " + GameController.point.ToString();
         }
+
+    }
+
+    public void NextLevel()
+    {
+        Debug.Log("NextLevel");
+        gameController.GetComponent<GameController>().NextLevel();
     }
 }

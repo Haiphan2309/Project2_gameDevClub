@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 329944469851267962}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &329944469060594488
 ParticleSystem:
@@ -4916,7 +4916,7 @@ RectTransform:
   - {fileID: 329944469161853597}
   - {fileID: 329944470100826130}
   m_Father: {fileID: 329944469851267962}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5016,9 +5016,9 @@ Transform:
   m_LocalPosition: {x: 57.06, y: 20.5, z: 0}
   m_LocalScale: {x: 8, y: 4, z: 1}
   m_Children:
+  - {fileID: 329944469524985177}
   - {fileID: 329944469060594490}
   - {fileID: 329944470542607392}
-  - {fileID: 329944469524985177}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5260,7 +5260,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 329944469851267962}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &329944470542607393
 SpriteRenderer:

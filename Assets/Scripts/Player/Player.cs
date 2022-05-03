@@ -170,7 +170,9 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Dash") && !hasDashed && !isGhost)
         {
             //Hieu ung Shake + bui luc nhay
-            if (x == 0 && y == 0) return;
+            //if (x == 0 && y == 0) return;
+
+            if (x == 0 && y == 0) x = 1; //dash ve phia ben phai neu khong nhan gi
 
             StartCoroutine(GroundDash());
             CameraController.LightShake();
@@ -256,12 +258,6 @@ public class Player : MonoBehaviour
             else Die();
         }
         if (collision.gameObject.tag == "UndefeatEnemy") Die();
-
-        if (collision.gameObject.tag == "Goal")
-        {
-            Debug.Log("NewLevel");
-            //New Level
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

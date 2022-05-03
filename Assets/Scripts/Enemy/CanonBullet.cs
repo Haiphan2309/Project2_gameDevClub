@@ -46,7 +46,8 @@ public class CanonBullet : Enemy
 
     private void OnDestroy()
     {
-        par.loop = false;
+        if (par != null)
+            par.loop = false;
         //Destroy(par);
     }
 
