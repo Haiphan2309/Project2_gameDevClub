@@ -57,6 +57,8 @@ public class Slime : Enemy
         //    anim.Play("Move");
         //    isGround = true;
         //}
+        isGround = Physics2D.BoxCast(coli.bounds.center, coli.bounds.size, 0f, Vector2.down, .1f, groundLayer)
+            || Physics2D.BoxCast(coli.bounds.center, coli.bounds.size, 0f, Vector2.down, .1f, interactives);
 
         if (isGround)
         {
