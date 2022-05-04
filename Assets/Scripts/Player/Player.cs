@@ -321,10 +321,10 @@ public class Player : MonoBehaviour
         Instantiate(obtainEffect, transform.position, Quaternion.identity);
 
         transform.localScale = new Vector3(0,0,0); //xoa hinh anh Player luc chet
-        Destroy(gameObject,1);
+        Invoke("Restart",1);
     }
 
-    private void OnDestroy()
+    void Restart()
     {
         Debug.Log("reload level");
         gameController.GetComponent<GameController>().ReStartLevel();

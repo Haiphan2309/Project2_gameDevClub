@@ -27,7 +27,7 @@ public class Slime : Enemy
 
     void Jump()
     {
-        Debug.Log("Jump");
+        //Debug.Log("Jump");
         isGround = false;
         if (isMoveLeft)
             rigi.velocity = new Vector3(-speed * Time.fixedDeltaTime, speed * Time.fixedDeltaTime, 0); 

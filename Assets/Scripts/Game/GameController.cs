@@ -50,6 +50,10 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("Room: " + room + " level: " + level);
         }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            NextLevel();
+        }
     }
 
     public void UpdateRoom()
@@ -72,7 +76,8 @@ public class GameController : MonoBehaviour
             Data.diamonds.Clear();
             room = 0;
             level++;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);           
+            Debug.Log(level + 1);
+            SceneManager.LoadScene(level+1);           
         }
     }
 }
