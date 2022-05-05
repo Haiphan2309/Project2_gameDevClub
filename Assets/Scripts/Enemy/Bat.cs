@@ -41,7 +41,7 @@ public class Bat : Enemy
                 {
                     transform.localScale = new Vector3(1, -1, 1);
 
-                    transform.up = Vector3.down;
+                    transform.up = Vector3.up;
                     FollowTime = m_FollowTime;
                     m_isGoingBack = false;
                     m_animator.SetBool("isIdle", true);                
@@ -76,7 +76,7 @@ public class Bat : Enemy
 
     void BackToStart(){
         transform.position = Vector2.MoveTowards(transform.position,m_StartPosition,m_Speed*Time.deltaTime);
-        transform.up = m_StartPosition - transform.position;
+        transform.up = (m_StartPosition - transform.position);
     }
 
     void CheckFoundPlayer(){
