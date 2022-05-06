@@ -169,11 +169,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Dash") && !hasDashed && !isGhost)
         {
-            //Hieu ung Shake + bui luc nhay
-            //if (x == 0 && y == 0) return;
-
             if (x == 0 && y == 0) x = 1; //dash ve phia ben phai neu khong nhan gi
 
+            //Hieu ung Shake + bui luc nhay
             StartCoroutine(GroundDash());
             CameraController.LightShake();
             GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
@@ -244,6 +242,7 @@ public class Player : MonoBehaviour
             rb.velocity += dir * jumpForce;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Bat")
