@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
 
     public void NextLevel()
     {
-        if (level < 3)
+        if (level < 2)
         {
             Data.diamonds.Clear();
             room = 0;
@@ -79,5 +79,6 @@ public class GameController : MonoBehaviour
             Debug.Log(level + 1);
             SceneManager.LoadScene(level+1);           
         }
+        else SceneManager.LoadScene(0);
     }
 }

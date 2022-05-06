@@ -40,14 +40,17 @@ public class PumpkinMon : Enemy
 
     void Shot()
     {
-        if (isDie == false && player!=null)
+        if (enabled)
         {
-            rigi.velocity = Vector2.zero;
-            isCanMove = false;
-            anim.Play("Shot");
-            Instantiate(bullet, transform.position, Quaternion.identity);
-            Invoke("CanMove", 0.5f);
-            //Invoke("Shot", 5);
+            if (isDie == false && player != null)
+            {
+                rigi.velocity = Vector2.zero;
+                isCanMove = false;
+                anim.Play("Shot");
+                Instantiate(bullet, transform.position, Quaternion.identity);
+                Invoke("CanMove", 0.5f);
+                //Invoke("Shot", 5);
+            }
         }
     }
     void CanMove()
