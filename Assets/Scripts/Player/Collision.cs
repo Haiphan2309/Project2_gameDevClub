@@ -32,7 +32,6 @@ public class Collision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (onWalk && onGround)
         {
             par.transform.position = transform.position - new Vector3(0, 0.4f, 0);
@@ -53,8 +52,8 @@ public class Collision : MonoBehaviour
         }
         else par.loop = false;
 
-        onGround = Physics2D.OverlapCircle(transform.position + bottom,0.1f,groundLayer) ||
-            Physics2D.OverlapCircle(transform.position + bottom, 0.1f, interactives);
+        onGround = Physics2D.OverlapCircle(transform.position + bottom,0.3f,groundLayer) ||
+            Physics2D.OverlapCircle(transform.position + bottom, 0.3f, interactives);
         onRightWall = Physics2D.OverlapCircle(transform.position + right, 0.1f, groundLayer);
         onLeftWall = Physics2D.OverlapCircle(transform.position + left, 0.1f, groundLayer);
         onWall = onRightWall || onLeftWall;
@@ -63,7 +62,7 @@ public class Collision : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + bottom, 0.1f);
+        Gizmos.DrawWireSphere(transform.position + bottom, 0.3f);
         Gizmos.DrawWireSphere(transform.position + right, 0.1f);
         Gizmos.DrawWireSphere(transform.position + left, 0.1f);
     }
