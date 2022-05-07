@@ -41,11 +41,16 @@ public class Player : MonoBehaviour
     private bool hasDashed=false;
 
     public ParticleSystem obtainEffect;
+
+    AudioSource music;
+    public AudioClip jumpClip, dashClip, dieClip, landClip, hitEnemyClip;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<AnimationScript>();
         coll = GetComponent<Collision>();
+        music = GetComponent<AudioSource>();
+
         Gcount = false;
         gameController = GameObject.FindGameObjectWithTag("GameController");
     }
@@ -96,6 +101,8 @@ public class Player : MonoBehaviour
 
         if ((Input.GetKeyDown("z") || (GB <= Time.time && isGhost)) && (GCD <= Time.time))
         {
+            music.clip = hitEnemyClip;
+            music.Play();
             if (isGhost)
             {
                 isGhost = false;
@@ -148,6 +155,8 @@ public class Player : MonoBehaviour
 
     private void GroundTouch()
     {
+        music.clip = landClip;
+        music.Play();
         hasDashed = false;
         wallJumped = false;
     }
@@ -176,6 +185,9 @@ public class Player : MonoBehaviour
             CameraController.LightShake();
             GameObject jumpDustObj = Instantiate(jumpDust, transform.position - new Vector3(0, 0.25f, 0), Quaternion.identity);
             Destroy(jumpDustObj, 1);
+
+            music.clip = dashClip;
+            music.Play();
 
             Invoke("DoAfterImage",0);
             Invoke("DoAfterImage", 0.05f);
@@ -230,6 +242,9 @@ public class Player : MonoBehaviour
         if (isGhost)
             return;
 
+        music.clip = jumpClip;
+        music.Play();
+
         onGround = false;
         if (push)
         {
@@ -253,6 +268,9 @@ public class Player : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 6);
                 collision.gameObject.GetComponent<Enemy>().GetHit();
                 Invoke("CanMove", 0.3f);
+
+                music.clip = hitEnemyClip;
+                music.Play();
             }
             else Die();
         }
@@ -267,8 +285,14 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector2(collision.contacts[0].normal.x, collision.contacts[0].normal.y) * 6;
             if (collision.contacts[0].normal.y >= 1 - 0.03f && collision.gameObject.tag == "Enemy")
             {
+                music.clip = hitEnemyClip;
+                music.Play();
                 collision.gameObject.GetComponent<Enemy>().GetHit();
-                GroundTouch();
+
+                //Giong GroundTouch nhung ko co am thanh landClip
+                hasDashed = false;
+                wallJumped = false;
+                //GroundTouch();
                 //Invoke("CanMove", 0.3f);
             }
             else
@@ -318,6 +342,9 @@ public class Player : MonoBehaviour
         dieObject = Instantiate(dieObj, transform.position, Quaternion.identity);
         Destroy(dieObject, 1);
         Instantiate(obtainEffect, transform.position, Quaternion.identity);
+
+        music.clip = dieClip;
+        music.Play();
 
         transform.localScale = new Vector3(0,0,0); //xoa hinh anh Player luc chet
         Invoke("Restart",1);
