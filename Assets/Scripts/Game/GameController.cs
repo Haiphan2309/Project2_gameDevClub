@@ -40,20 +40,20 @@ public class GameController : MonoBehaviour
         diamondPoint.text = "Diamond: " + point.ToString();
 
         //Chi dung de debug (nhan phim K de sang room ke tiep ngay lap tuc)
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            room++;
-            ReStartLevel();
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    room++;
+        //    ReStartLevel();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Room: " + room + " level: " + level);
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            NextLevel();
-        }
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    Debug.Log("Room: " + room + " level: " + level);
+        //}
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    NextLevel();
+        //}
     }
 
     public void UpdateRoom()
